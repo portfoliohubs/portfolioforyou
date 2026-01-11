@@ -1,7 +1,7 @@
 baseURL = "https://yourusername.github.io/yourrepo/"
 languageCode = "en-us"
 title = "Dr. Portfolio"
-theme = "single-page-portfolio"
+defaultContentLanguage = "en"
 
 [params]
   # Hero Section
@@ -9,7 +9,7 @@ theme = "single-page-portfolio"
     name = "Dr. Your Name"
     tagline = "Dental Specialist"
     graduation = "Graduated 2020 - Faculty of Dentistry"
-    profile_image = "profile.jpg"  # Will be uploaded via GitHub issues
+    profile_image = "https://via.placeholder.com/200"
     
     [params.hero.current_position]
       role = "Dental Specialist"
@@ -78,17 +78,9 @@ theme = "single-page-portfolio"
       event = "Current Position"
     
     # Certificates (images will be uploaded via GitHub issues)
-    [[params.education.certificates]]
-      title = "Advanced Endodontics Course"
-      image = "cert1.jpg"
-    
-    [[params.education.certificates]]
-      title = "Digital Dentistry Workshop"
-      image = "cert2.jpg"
-    
-    [[params.education.certificates]]
-      title = "Implantology Certification"
-      image = "cert3.jpg"
+    # [[params.education.certificates]]
+    #   title = "Advanced Endodontics Course"
+    #   image = "cert1.jpg"
 
   # Clinical Cases Section
   [[params.clinical_cases]]
@@ -96,13 +88,13 @@ theme = "single-page-portfolio"
     category = "Cosmetic Dentistry"
     
     [[params.clinical_cases.cases]]
-      before = "case1-before.jpg"
-      after = "case1-after.jpg"
+      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
+      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
       description = "Smile makeover with veneers"
     
     [[params.clinical_cases.cases]]
-      before = "case2-before.jpg"
-      after = "case2-after.jpg"
+      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
+      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
       description = "Teeth whitening treatment"
 
   [[params.clinical_cases]]
@@ -110,23 +102,9 @@ theme = "single-page-portfolio"
     category = "Restorative Dentistry"
     
     [[params.clinical_cases.cases]]
-      before = "case3-before.jpg"
-      after = "case3-after.jpg"
+      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
+      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
       description = "Crown and bridge restoration"
-    
-    [[params.clinical_cases.cases]]
-      before = "case4-before.jpg"
-      after = "case4-after.jpg"
-      description = "Full mouth rehabilitation"
-
-  [[params.clinical_cases]]
-    enabled = true
-    category = "Orthodontics"
-    
-    [[params.clinical_cases.cases]]
-      before = "case5-before.jpg"
-      after = "case5-after.jpg"
-      description = "Clear aligner treatment"
 
   # Contact Section
   [params.contact]
@@ -138,110 +116,87 @@ theme = "single-page-portfolio"
     linkedin = "https://linkedin.com/in/yourprofile"
     
     [params.contact.location]
-      enabled = true
+      enabled = false
       address = "123 Main Street, City, Country"
       latitude = "31.2653"
       longitude = "32.3019"
 
 # Arabic Translations
-[languages]
-  [languages.ar]
-    languageName = "العربية"
-    weight = 2
+[params.ar]
+  [params.ar.hero]
+    name = "د. اسمك"
+    tagline = "أخصائي طب الأسنان"
+    graduation = "تخرج 2020 - كلية طب الأسنان"
     
-    [languages.ar.params]
-      [languages.ar.params.hero]
-        name = "د. اسمك"
-        tagline = "أخصائي طب الأسنان"
-        graduation = "تخرج 2020 - كلية طب الأسنان"
-        
-        [languages.ar.params.hero.current_position]
-          role = "أخصائي طب الأسنان"
-          clinic = "اسم العيادة"
-      
-      [languages.ar.params.skills]
-        clinical = [
-          "التشخيص الفموي وخطة العلاج",
-          "طب الأسنان الوقائي",
-          "طب الأسنان الترميمي",
-          "علاج الجذور",
-          "التركيبات السنية",
-          "جراحة الفم",
-          "طب أسنان الأطفال",
-          "علاج اللثة",
-          "أساسيات تقويم الأسنان"
-        ]
-        
-        digital = [
-          "التصوير الإشعاعي الرقمي",
-          "طب الأسنان الرقمي",
-          "تصميم الابتسامة الرقمي",
-          "برامج طب الأسنان",
-          "الطباعة ثلاثية الأبعاد"
-        ]
-        
-        soft = [
-          "التواصل مع المرضى",
-          "التعاطف والرحمة",
-          "التعاون الجماعي",
-          "إدارة الوقت",
-          "حل المشكلات",
-          "الاهتمام بالتفاصيل"
-        ]
-      
-      [languages.ar.params.education]
-        university = "اسم الجامعة - كلية طب الأسنان"
-        
-        [languages.ar.params.education.master]
-          title = "ماجستير في طب الفم"
-        
-        [languages.ar.params.education.phd]
-          title = "دكتوراه في علوم الأسنان"
-        
-        [[languages.ar.params.education.timeline]]
-          event = "تخرج من كلية طب الأسنان"
-        
-        [[languages.ar.params.education.timeline]]
-          event = "بدء الممارسة العامة"
-        
-        [[languages.ar.params.education.timeline]]
-          event = "برنامج التدريب المتخصص"
-        
-        [[languages.ar.params.education.timeline]]
-          event = "الوظيفة الحالية"
-        
-        [[languages.ar.params.education.certificates]]
-          title = "دورة علاج الجذور المتقدمة"
-        
-        [[languages.ar.params.education.certificates]]
-          title = "ورشة طب الأسنان الرقمي"
-        
-        [[languages.ar.params.education.certificates]]
-          title = "شهادة زراعة الأسنان"
-      
-      [[languages.ar.params.clinical_cases]]
-        category = "طب الأسنان التجميلي"
-        
-        [[languages.ar.params.clinical_cases.cases]]
-          description = "تجميل الابتسامة بالقشور"
-        
-        [[languages.ar.params.clinical_cases.cases]]
-          description = "علاج تبييض الأسنان"
-      
-      [[languages.ar.params.clinical_cases]]
-        category = "طب الأسنان الترميمي"
-        
-        [[languages.ar.params.clinical_cases.cases]]
-          description = "ترميم التيجان والجسور"
-        
-        [[languages.ar.params.clinical_cases.cases]]
-          description = "إعادة تأهيل الفم الكامل"
-      
-      [[languages.ar.params.clinical_cases]]
-        category = "تقويم الأسنان"
-        
-        [[languages.ar.params.clinical_cases.cases]]
-          description = "علاج التقويم الشفاف"
-      
-      [languages.ar.params.contact.location]
-        address = "123 الشارع الرئيسي، المدينة، البلد"
+    [params.ar.hero.current_position]
+      role = "أخصائي طب الأسنان"
+      clinic = "اسم العيادة"
+  
+  [params.ar.skills]
+    clinical = [
+      "التشخيص الفموي وخطة العلاج",
+      "طب الأسنان الوقائي",
+      "طب الأسنان الترميمي",
+      "علاج الجذور",
+      "التركيبات السنية",
+      "جراحة الفم",
+      "طب أسنان الأطفال",
+      "علاج اللثة",
+      "أساسيات تقويم الأسنان"
+    ]
+    
+    digital = [
+      "التصوير الإشعاعي الرقمي",
+      "طب الأسنان الرقمي",
+      "تصميم الابتسامة الرقمي",
+      "برامج طب الأسنان",
+      "الطباعة ثلاثية الأبعاد"
+    ]
+    
+    soft = [
+      "التواصل مع المرضى",
+      "التعاطف والرحمة",
+      "التعاون الجماعي",
+      "إدارة الوقت",
+      "حل المشكلات",
+      "الاهتمام بالتفاصيل"
+    ]
+  
+  [params.ar.education]
+    university = "اسم الجامعة - كلية طب الأسنان"
+    
+    [params.ar.education.master]
+      title = "ماجستير في طب الفم"
+    
+    [params.ar.education.phd]
+      title = "دكتوراه في علوم الأسنان"
+    
+    [[params.ar.education.timeline]]
+      event = "تخرج من كلية طب الأسنان"
+    
+    [[params.ar.education.timeline]]
+      event = "بدء الممارسة العامة"
+    
+    [[params.ar.education.timeline]]
+      event = "برنامج التدريب المتخصص"
+    
+    [[params.ar.education.timeline]]
+      event = "الوظيفة الحالية"
+  
+  [[params.ar.clinical_cases]]
+    category = "طب الأسنان التجميلي"
+    
+    [[params.ar.clinical_cases.cases]]
+      description = "تجميل الابتسامة بالقشور"
+    
+    [[params.ar.clinical_cases.cases]]
+      description = "علاج تبييض الأسنان"
+  
+  [[params.ar.clinical_cases]]
+    category = "طب الأسنان الترميمي"
+    
+    [[params.ar.clinical_cases.cases]]
+      description = "ترميم التيجان والجسور"
+  
+  [params.ar.contact.location]
+    address = "123 الشارع الرئيسي، المدينة، البلد"
