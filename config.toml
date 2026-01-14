@@ -97,6 +97,11 @@ defaultContentLanguage = "en"
       after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
       description = "Teeth whitening treatment"
 
+    [[params.clinical_cases.cases]]
+      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
+      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
+      description = "Teeth whitening treatment1"
+
   [[params.clinical_cases]]
     enabled = true
     category = "Restorative Dentistry"
