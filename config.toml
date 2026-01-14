@@ -1,4 +1,4 @@
-baseURL = "https://yourusername.github.io/yourrepo/"
+baseURL = "https://portfoliohubs.github.io/portfolioforyou/"
 languageCode = "en-us"
 title = "Dr. Portfolio"
 defaultContentLanguage = "en"
@@ -88,13 +88,11 @@ defaultContentLanguage = "en"
     category = "Cosmetic Dentistry"
     
     [[params.clinical_cases.cases]]
-      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
-      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
+      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
       description = "Smile makeover with veneers"
     
     [[params.clinical_cases.cases]]
-      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
-      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
+      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
       description = "Teeth whitening treatment"
 
   [[params.clinical_cases]]
@@ -102,8 +100,7 @@ defaultContentLanguage = "en"
     category = "Restorative Dentistry"
     
     [[params.clinical_cases.cases]]
-      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
-      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
+      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
       description = "Crown and bridge restoration"
 
   # Contact Section
