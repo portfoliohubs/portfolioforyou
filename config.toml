@@ -18,8 +18,8 @@ defaultContentLanguage = "en"
 
   [params.seo]
     description = "Professional dental portfolio"
-    doctor_name_en = "Dr. Your Name"
-    doctor_name_ar = "د. اسمك"
+    doctor_name_en = "Dr. Michael Nabil"
+    doctor_name_ar = "د. ماكل نبيل"
     site_name = "Dr. Portfolio"
     og_image = "https://via.placeholder.com/1200x630"
     twitter_handle = ""
@@ -28,14 +28,14 @@ defaultContentLanguage = "en"
       "dental clinic",
       "cosmetic dentistry",
       "restorative dentistry",
-      "Dr. Your Name"
+      "Dr. Michael Nabil"
     ]
     keywords_ar = [
       "طبيب أسنان",
       "عيادة أسنان",
       "تجميل الأسنان",
       "ترميم الأسنان",
-      "د. اسمك"
+      "د. ماكل نبيل"
     ]
 
   [params.ui]
@@ -211,7 +211,7 @@ defaultContentLanguage = "en"
 # Arabic Translations
 [params.ar]
   [params.ar.hero]
-    name = "د. اسمك"
+    name = "د. ماكل نبيل"
     tagline = "أخصائي طب الأسنان"
     graduation = "تخرج 2020 - كلية طب الأسنان"
     profile_image_alt = "صورة الملف الشخصي للدكتور"
