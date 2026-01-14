@@ -976,7 +976,7 @@
             </button>
             
             <div class="header-logo">
-                <h1 class="header-name" id="headerName">{{ .Site.Params.hero.name }}</h1>
+                <h1 class="header-name" id="headerName" data-en="{{ .Site.Params.hero.name }}" data-ar="{{ .Site.Params.ar.hero.name }}">{{ .Site.Params.hero.name }}</h1>
             </div>
             
             <div class="header-controls">
@@ -998,12 +998,12 @@
                     <i class="fas fa-times"></i>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="#home" data-key="nav.profile">{{ .Site.Params.ui.nav.profile }}</a></li>
-                    <li><a href="#skills" data-key="nav.skills">{{ .Site.Params.ui.nav.skills }}</a></li>
-                    <li><a href="#education" data-key="nav.education">{{ .Site.Params.ui.nav.education }}</a></li>
-                    <li><a href="#cases" data-key="nav.clinical_cases">{{ .Site.Params.ui.nav.clinical_cases }}</a></li>
-                    <li><a href="#blog" data-key="nav.blog">{{ .Site.Params.ui.nav.blog }}</a></li>
-                    <li><a href="#contact" data-key="nav.contact">{{ .Site.Params.ui.nav.contact }}</a></li>
+                    <li><a href="#home" data-en="{{ .Site.Params.ui.nav.profile }}" data-ar="{{ .Site.Params.ar.ui.nav.profile }}">{{ .Site.Params.ui.nav.profile }}</a></li>
+                    <li><a href="#skills" data-en="{{ .Site.Params.ui.nav.skills }}" data-ar="{{ .Site.Params.ar.ui.nav.skills }}">{{ .Site.Params.ui.nav.skills }}</a></li>
+                    <li><a href="#education" data-en="{{ .Site.Params.ui.nav.education }}" data-ar="{{ .Site.Params.ar.ui.nav.education }}">{{ .Site.Params.ui.nav.education }}</a></li>
+                    <li><a href="#cases" data-en="{{ .Site.Params.ui.nav.clinical_cases }}" data-ar="{{ .Site.Params.ar.ui.nav.clinical_cases }}">{{ .Site.Params.ui.nav.clinical_cases }}</a></li>
+                    <li><a href="#blog" data-en="{{ .Site.Params.ui.nav.blog }}" data-ar="{{ .Site.Params.ar.ui.nav.blog }}">{{ .Site.Params.ui.nav.blog }}</a></li>
+                    <li><a href="#contact" data-en="{{ .Site.Params.ui.nav.contact }}" data-ar="{{ .Site.Params.ar.ui.nav.contact }}">{{ .Site.Params.ui.nav.contact }}</a></li>
                 </ul>
             </div>
         </nav>
@@ -1018,21 +1018,23 @@
                     <img 
                         src="{{ .Site.Params.hero.profile_image }}" 
                         alt="{{ .Site.Params.hero.profile_image_alt }}"
+                        data-alt-en="{{ .Site.Params.hero.profile_image_alt }}"
+                        data-alt-ar="{{ .Site.Params.ar.hero.profile_image_alt }}"
                         class="profile-image"
                         id="profileImage"
                     >
                 </div>
                 
-                <h1 class="hero-name" id="heroName">{{ .Site.Params.hero.name }}</h1>
-                <p class="hero-tagline" id="heroTagline">{{ .Site.Params.hero.tagline }}</p>
-                <p class="hero-graduation" id="heroGraduation">{{ .Site.Params.hero.graduation }}</p>
+                <h1 class="hero-name" id="heroName" data-en="{{ .Site.Params.hero.name }}" data-ar="{{ .Site.Params.ar.hero.name }}">{{ .Site.Params.hero.name }}</h1>
+                <p class="hero-tagline" id="heroTagline" data-en="{{ .Site.Params.hero.tagline }}" data-ar="{{ .Site.Params.ar.hero.tagline }}">{{ .Site.Params.hero.tagline }}</p>
+                <p class="hero-graduation" id="heroGraduation" data-en="{{ .Site.Params.hero.graduation }}" data-ar="{{ .Site.Params.ar.hero.graduation }}">{{ .Site.Params.hero.graduation }}</p>
                 
                 <div class="hero-position" id="heroPosition">
                     <p>
-                        <span data-key="labels.now_working_as">{{ .Site.Params.ui.labels.now_working_as }}</span>
-                        <strong id="heroRole">{{ .Site.Params.hero.current_position.role }}</strong>
-                        <span data-key="labels.at">{{ .Site.Params.ui.labels.at }}</span>
-                        <strong id="heroClinic">{{ .Site.Params.hero.current_position.clinic }}</strong>
+                        <span data-en="{{ .Site.Params.ui.labels.now_working_as }}" data-ar="{{ .Site.Params.ar.ui.labels.now_working_as }}">{{ .Site.Params.ui.labels.now_working_as }}</span>
+                        <strong id="heroRole" data-en="{{ .Site.Params.hero.current_position.role }}" data-ar="{{ .Site.Params.ar.hero.current_position.role }}">{{ .Site.Params.hero.current_position.role }}</strong>
+                        <span data-en="{{ .Site.Params.ui.labels.at }}" data-ar="{{ .Site.Params.ar.ui.labels.at }}">{{ .Site.Params.ui.labels.at }}</span>
+                        <strong id="heroClinic" data-en="{{ .Site.Params.hero.current_position.clinic }}" data-ar="{{ .Site.Params.ar.hero.current_position.clinic }}">{{ .Site.Params.hero.current_position.clinic }}</strong>
                     </p>
                 </div>
             </div>
@@ -1044,32 +1046,68 @@
                 <div class="icon-circle">
                     <i class="fas fa-star"></i>
                 </div>
-                <h2 class="section-title" data-key="skills.title">{{ .Site.Params.ui.skills.title }}</h2>
+                <h2 class="section-title" data-en="{{ .Site.Params.ui.skills.title }}" data-ar="{{ .Site.Params.ar.ui.skills.title }}">{{ .Site.Params.ui.skills.title }}</h2>
             </div>
             
             <div class="skills-container">
                 <div class="skill-category">
                     <h3 class="skill-category-title">
                         <i class="fas fa-tooth"></i>
-                        <span data-key="skills.clinical_title">{{ .Site.Params.ui.skills.clinical_title }}</span>
+                        <span data-en="{{ .Site.Params.ui.skills.clinical_title }}" data-ar="{{ .Site.Params.ar.ui.skills.clinical_title }}">{{ .Site.Params.ui.skills.clinical_title }}</span>
                     </h3>
-                    <div class="skill-list" id="clinicalSkills"></div>
+                    <div class="skill-list" id="clinicalSkills">
+                        {{ $arList := .Site.Params.ar.skills.clinical | default (slice) }}
+                        {{ range $i, $skill := .Site.Params.skills.clinical }}
+                            {{ $arSkill := $skill }}
+                            {{ if lt $i (len $arList) }}
+                                {{ $arSkill = index $arList $i }}
+                            {{ end }}
+                            <div class="skill-item">
+                                <span class="skill-number">{{ add $i 1 }}</span>
+                                <span class="skill-text" data-en="{{ $skill }}" data-ar="{{ $arSkill }}">{{ $skill }}</span>
+                            </div>
+                        {{ end }}
+                    </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3 class="skill-category-title">
                         <i class="fas fa-laptop"></i>
-                        <span data-key="skills.digital_title">{{ .Site.Params.ui.skills.digital_title }}</span>
+                        <span data-en="{{ .Site.Params.ui.skills.digital_title }}" data-ar="{{ .Site.Params.ar.ui.skills.digital_title }}">{{ .Site.Params.ui.skills.digital_title }}</span>
                     </h3>
-                    <div class="skill-list" id="digitalSkills"></div>
+                    <div class="skill-list" id="digitalSkills">
+                        {{ $arList := .Site.Params.ar.skills.digital | default (slice) }}
+                        {{ range $i, $skill := .Site.Params.skills.digital }}
+                            {{ $arSkill := $skill }}
+                            {{ if lt $i (len $arList) }}
+                                {{ $arSkill = index $arList $i }}
+                            {{ end }}
+                            <div class="skill-item">
+                                <span class="skill-number">{{ add $i 1 }}</span>
+                                <span class="skill-text" data-en="{{ $skill }}" data-ar="{{ $arSkill }}">{{ $skill }}</span>
+                            </div>
+                        {{ end }}
+                    </div>
                 </div>
                 
                 <div class="skill-category">
                     <h3 class="skill-category-title">
                         <i class="fas fa-users"></i>
-                        <span data-key="skills.soft_title">{{ .Site.Params.ui.skills.soft_title }}</span>
+                        <span data-en="{{ .Site.Params.ui.skills.soft_title }}" data-ar="{{ .Site.Params.ar.ui.skills.soft_title }}">{{ .Site.Params.ui.skills.soft_title }}</span>
                     </h3>
-                    <div class="skill-list" id="softSkills"></div>
+                    <div class="skill-list" id="softSkills">
+                        {{ $arList := .Site.Params.ar.skills.soft | default (slice) }}
+                        {{ range $i, $skill := .Site.Params.skills.soft }}
+                            {{ $arSkill := $skill }}
+                            {{ if lt $i (len $arList) }}
+                                {{ $arSkill = index $arList $i }}
+                            {{ end }}
+                            <div class="skill-item">
+                                <span class="skill-number">{{ add $i 1 }}</span>
+                                <span class="skill-text" data-en="{{ $skill }}" data-ar="{{ $arSkill }}">{{ $skill }}</span>
+                            </div>
+                        {{ end }}
+                    </div>
                 </div>
             </div>
         </section>
@@ -1080,26 +1118,62 @@
                 <div class="icon-circle">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <h2 class="section-title" data-key="education.title">{{ .Site.Params.ui.education.title }}</h2>
+                <h2 class="section-title" data-en="{{ .Site.Params.ui.education.title }}" data-ar="{{ .Site.Params.ar.ui.education.title }}">{{ .Site.Params.ui.education.title }}</h2>
             </div>
             
             <div class="education-container">
                 <div class="university-info">
                     <h3 class="university-name" id="universityName">{{ .Site.Params.education.university }}</h3>
                     <p class="graduation-year">
-                        <span data-key="education.graduated_label">{{ .Site.Params.ui.education.graduated_label }}</span>: <span id="gradYear">{{ .Site.Params.education.graduation_year }}</span>
+                        <span data-en="{{ .Site.Params.ui.education.graduated_label }}" data-ar="{{ .Site.Params.ar.ui.education.graduated_label }}">{{ .Site.Params.ui.education.graduated_label }}</span>: <span id="gradYear">{{ .Site.Params.education.graduation_year }}</span>
                     </p>
                 </div>
                 
-                <div class="degrees-container" id="degreesContainer"></div>
+                <div class="degrees-container" id="degreesContainer">
+                    {{ if .Site.Params.education.master.obtained }}
+                    <div class="degree-item">
+                        <i class="fas fa-award degree-icon"></i>
+                        <div class="degree-info">
+                            <strong data-en="{{ .Site.Params.ui.labels.masters_degree }}" data-ar="{{ .Site.Params.ar.ui.labels.masters_degree }}">{{ .Site.Params.ui.labels.masters_degree }}</strong>
+                            <p data-en="{{ .Site.Params.education.master.title }}" data-ar="{{ .Site.Params.ar.education.master.title }}">{{ .Site.Params.education.master.title }}</p>
+                            <span class="degree-year">({{ .Site.Params.education.master.year }})</span>
+                        </div>
+                    </div>
+                    {{ end }}
+                    {{ if .Site.Params.education.phd.obtained }}
+                    <div class="degree-item">
+                        <i class="fas fa-award degree-icon"></i>
+                        <div class="degree-info">
+                            <strong data-en="{{ .Site.Params.ui.labels.phd_degree }}" data-ar="{{ .Site.Params.ar.ui.labels.phd_degree }}">{{ .Site.Params.ui.labels.phd_degree }}</strong>
+                            <p data-en="{{ .Site.Params.education.phd.title }}" data-ar="{{ .Site.Params.ar.education.phd.title }}">{{ .Site.Params.education.phd.title }}</p>
+                            <span class="degree-year">({{ .Site.Params.education.phd.year }})</span>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
                 
                 <div class="timeline-container">
-                    <h3 class="timeline-title" data-key="education.career_timeline_title">{{ .Site.Params.ui.education.career_timeline_title }}</h3>
-                    <div class="timeline" id="timeline"></div>
+                    <h3 class="timeline-title" data-en="{{ .Site.Params.ui.education.career_timeline_title }}" data-ar="{{ .Site.Params.ar.ui.education.career_timeline_title }}">{{ .Site.Params.ui.education.career_timeline_title }}</h3>
+                    <div class="timeline" id="timeline">
+                        {{ $arTimeline := .Site.Params.ar.education.timeline | default (slice) }}
+                        {{ range $i, $item := .Site.Params.education.timeline }}
+                            {{ $arEvent := $item.event }}
+                            {{ if lt $i (len $arTimeline) }}
+                                {{ $arEvent = (index $arTimeline $i).event | default $item.event }}
+                            {{ end }}
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-year">{{ $item.year }}</span>
+                                    <p class="timeline-event" data-en="{{ $item.event }}" data-ar="{{ $arEvent }}">{{ $item.event }}</p>
+                                </div>
+                            </div>
+                        {{ end }}
+                    </div>
                 </div>
                 
                 <div class="certificates-container" id="certificatesSection" style="display: none;">
-                    <h3 class="certificates-title" data-key="education.courses_title">{{ .Site.Params.ui.education.courses_title }}</h3>
+                    <h3 class="certificates-title" data-en="{{ .Site.Params.ui.education.courses_title }}" data-ar="{{ .Site.Params.ar.ui.education.courses_title }}">{{ .Site.Params.ui.education.courses_title }}</h3>
                     <div class="certificates-grid" id="certificates"></div>
                 </div>
             </div>
@@ -1111,11 +1185,31 @@
                 <div class="icon-circle">
                     <i class="fas fa-tooth"></i>
                 </div>
-                <h2 class="section-title" data-key="cases.title">{{ .Site.Params.ui.cases.title }}</h2>
-                <p class="section-subtitle" data-key="cases.subtitle">{{ .Site.Params.ui.cases.subtitle }}</p>
+                <h2 class="section-title" data-en="{{ .Site.Params.ui.cases.title }}" data-ar="{{ .Site.Params.ar.ui.cases.title }}">{{ .Site.Params.ui.cases.title }}</h2>
+                <p class="section-subtitle" data-en="{{ .Site.Params.ui.cases.subtitle }}" data-ar="{{ .Site.Params.ar.ui.cases.subtitle }}">{{ .Site.Params.ui.cases.subtitle }}</p>
             </div>
             
-            <div class="cases-container" id="casesContainer"></div>
+            <div class="cases-container" id="casesContainer">
+                {{ range .Site.Params.clinical_cases }}
+                    {{ if .enabled }}
+                        <div class="case-category">
+                            <h3 class="case-category-title" data-en="{{ .category }}" data-ar="{{ .category_ar | default .category }}">{{ .category }}</h3>
+                            <div class="cases-grid">
+                                {{ range .cases }}
+                                    <div class="case-card">
+                                        <div class="case-image-wrapper single">
+                                            <img src="{{ .photo }}" alt="{{ .alt | default .description }}" data-alt-en="{{ .alt | default .description }}" data-alt-ar="{{ .alt_ar | default (.alt | default .description) }}" class="case-image" loading="lazy">
+                                        </div>
+                                        <div class="case-description">
+                                            <p data-en="{{ .description }}" data-ar="{{ .description_ar | default .description }}">{{ .description }}</p>
+                                        </div>
+                                    </div>
+                                {{ end }}
+                            </div>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
         </section>
 
         <!-- Blog Section -->
@@ -1124,12 +1218,12 @@
                 <div class="icon-circle">
                     <i class="fas fa-blog"></i>
                 </div>
-                <h2 class="section-title" data-key="blog.title">{{ .Site.Params.ui.blog.title }}</h2>
-                <p class="section-subtitle" data-key="blog.subtitle">{{ .Site.Params.ui.blog.subtitle }}</p>
+                <h2 class="section-title" data-en="{{ .Site.Params.ui.blog.title }}" data-ar="{{ .Site.Params.ar.ui.blog.title }}">{{ .Site.Params.ui.blog.title }}</h2>
+                <p class="section-subtitle" data-en="{{ .Site.Params.ui.blog.subtitle }}" data-ar="{{ .Site.Params.ar.ui.blog.subtitle }}">{{ .Site.Params.ui.blog.subtitle }}</p>
             </div>
             
             <div class="blog-container" id="blogContainer">
-                <p id="blogEmpty" data-key="blog.empty_text" style="text-align: center; color: var(--text-light);">{{ .Site.Params.ui.blog.empty_text }}</p>
+                <p id="blogEmpty" data-en="{{ .Site.Params.ui.blog.empty_text }}" data-ar="{{ .Site.Params.ar.ui.blog.empty_text }}" style="text-align: center; color: var(--text-light);">{{ .Site.Params.ui.blog.empty_text }}</p>
             </div>
         </section>
 
@@ -1139,19 +1233,87 @@
                 <div class="icon-circle">
                     <i class="fas fa-envelope"></i>
                 </div>
-                <h2 class="section-title" data-key="contact.title">{{ .Site.Params.ui.contact.title }}</h2>
-                <p class="section-subtitle" data-key="contact.subtitle">{{ .Site.Params.ui.contact.subtitle }}</p>
+                <h2 class="section-title" data-en="{{ .Site.Params.ui.contact.title }}" data-ar="{{ .Site.Params.ar.ui.contact.title }}">{{ .Site.Params.ui.contact.title }}</h2>
+                <p class="section-subtitle" data-en="{{ .Site.Params.ui.contact.subtitle }}" data-ar="{{ .Site.Params.ar.ui.contact.subtitle }}">{{ .Site.Params.ui.contact.subtitle }}</p>
             </div>
             
             <div class="contact-container">
-                <div class="contact-methods" id="contactMethods"></div>
-                
-                <div class="social-media">
-                    <h3 class="social-title" data-key="contact.follow_me_title">{{ .Site.Params.ui.contact.follow_me_title }}</h3>
-                    <div class="social-links" id="socialLinks"></div>
+                <div class="contact-methods" id="contactMethods">
+                    {{ with .Site.Params.contact.phone }}
+                    <a href="tel:{{ . }}" class="contact-method">
+                        <div class="contact-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label" data-en="{{ $.Site.Params.ui.labels.phone }}" data-ar="{{ $.Site.Params.ar.ui.labels.phone }}">{{ $.Site.Params.ui.labels.phone }}</span>
+                            <span class="contact-value">{{ . }}</span>
+                        </div>
+                    </a>
+                    {{ end }}
+
+                    {{ with .Site.Params.contact.whatsapp }}
+                    <a href="https://wa.me/{{ replace (replace (replace . " " "") "+" "") "\t" "" }}" target="_blank" class="contact-method">
+                        <div class="contact-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label" data-en="{{ $.Site.Params.ui.labels.whatsapp }}" data-ar="{{ $.Site.Params.ar.ui.labels.whatsapp }}">{{ $.Site.Params.ui.labels.whatsapp }}</span>
+                            <span class="contact-value">{{ . }}</span>
+                        </div>
+                    </a>
+                    {{ end }}
+
+                    {{ with .Site.Params.contact.email }}
+                    <a href="mailto:{{ . }}" class="contact-method">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <span class="contact-label" data-en="{{ $.Site.Params.ui.labels.email }}" data-ar="{{ $.Site.Params.ar.ui.labels.email }}">{{ $.Site.Params.ui.labels.email }}</span>
+                            <span class="contact-value">{{ . }}</span>
+                        </div>
+                    </a>
+                    {{ end }}
                 </div>
                 
-                <div class="location-container" id="locationContainer" style="display: none;"></div>
+                <div class="social-media">
+                    <h3 class="social-title" data-en="{{ .Site.Params.ui.contact.follow_me_title }}" data-ar="{{ .Site.Params.ar.ui.contact.follow_me_title }}">{{ .Site.Params.ui.contact.follow_me_title }}</h3>
+                    <div class="social-links" id="socialLinks">
+                        {{ with .Site.Params.contact.instagram }}
+                        <a href="{{ . }}" target="_blank" class="social-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        {{ end }}
+                        {{ with .Site.Params.contact.facebook }}
+                        <a href="{{ . }}" target="_blank" class="social-link facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        {{ end }}
+                        {{ with .Site.Params.contact.linkedin }}
+                        <a href="{{ . }}" target="_blank" class="social-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        {{ end }}
+                    </div>
+                </div>
+                
+                {{ if .Site.Params.contact.location.enabled }}
+                <div class="location-container" id="locationContainer">
+                    <h3 class="location-title" data-en="{{ .Site.Params.ui.labels.location }}" data-ar="{{ .Site.Params.ar.ui.labels.location }}">{{ .Site.Params.ui.labels.location }}</h3>
+                    <p class="location-address" data-en="{{ .Site.Params.contact.location.address }}" data-ar="{{ .Site.Params.ar.contact.location.address | default .Site.Params.contact.location.address }}">{{ .Site.Params.contact.location.address }}</p>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps?q={{ .Site.Params.contact.location.latitude }},{{ .Site.Params.contact.location.longitude }}&hl=en&z=14&output=embed"
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                    <a 
+                        href="https://www.google.com/maps/search/?api=1&query={{ .Site.Params.contact.location.latitude }},{{ .Site.Params.contact.location.longitude }}" 
+                        target="_blank" 
+                        class="btn btn-secondary">
+                        <i class="fas fa-directions"></i>
+                        <span data-en="{{ .Site.Params.ui.labels.get_directions }}" data-ar="{{ .Site.Params.ar.ui.labels.get_directions }}">{{ .Site.Params.ui.labels.get_directions }}</span>
+                    </a>
+                </div>
+                {{ end }}
             </div>
         </section>
     </div>
@@ -1162,42 +1324,37 @@
             <nav class="bottom-nav">
                 <a href="#home" class="nav-item active">
                     <i class="fas fa-user"></i>
-                    <span data-key="nav.profile">{{ .Site.Params.ui.nav.profile }}</span>
+                    <span data-en="{{ .Site.Params.ui.nav.profile }}" data-ar="{{ .Site.Params.ar.ui.nav.profile }}">{{ .Site.Params.ui.nav.profile }}</span>
                 </a>
                 <a href="#skills" class="nav-item">
                     <i class="fas fa-star"></i>
-                    <span data-key="nav.skills">{{ .Site.Params.ui.nav.skills }}</span>
+                    <span data-en="{{ .Site.Params.ui.nav.skills }}" data-ar="{{ .Site.Params.ar.ui.nav.skills }}">{{ .Site.Params.ui.nav.skills }}</span>
                 </a>
                 <a href="#education" class="nav-item">
                     <i class="fas fa-graduation-cap"></i>
-                    <span data-key="nav.education">{{ .Site.Params.ui.nav.education }}</span>
+                    <span data-en="{{ .Site.Params.ui.nav.education }}" data-ar="{{ .Site.Params.ar.ui.nav.education }}">{{ .Site.Params.ui.nav.education }}</span>
                 </a>
                 <a href="#cases" class="nav-item">
                     <i class="fas fa-tooth"></i>
-                    <span data-key="nav.cases_short">{{ .Site.Params.ui.nav.cases_short }}</span>
+                    <span data-en="{{ .Site.Params.ui.nav.cases_short }}" data-ar="{{ .Site.Params.ar.ui.nav.cases_short }}">{{ .Site.Params.ui.nav.cases_short }}</span>
                 </a>
                 <a href="#blog" class="nav-item">
                     <i class="fas fa-blog"></i>
-                    <span data-key="nav.blog">{{ .Site.Params.ui.nav.blog }}</span>
+                    <span data-en="{{ .Site.Params.ui.nav.blog }}" data-ar="{{ .Site.Params.ar.ui.nav.blog }}">{{ .Site.Params.ui.nav.blog }}</span>
                 </a>
                 <a href="#contact" class="nav-item">
                     <i class="fas fa-envelope"></i>
-                    <span data-key="nav.contact">{{ .Site.Params.ui.nav.contact }}</span>
+                    <span data-en="{{ .Site.Params.ui.nav.contact }}" data-ar="{{ .Site.Params.ar.ui.nav.contact }}">{{ .Site.Params.ui.nav.contact }}</span>
                 </a>
             </nav>
             
             <div class="footer-info">
-                <p>&copy; <span id="currentYear"></span> <span id="footerName">{{ .Site.Params.hero.name }}</span>. <span id="rightsReserved" data-key="labels.rights_reserved">{{ .Site.Params.ui.labels.rights_reserved }}</span>.</p>
+                <p>&copy; <span id="currentYear"></span> <span id="footerName" data-en="{{ .Site.Params.hero.name }}" data-ar="{{ .Site.Params.ar.hero.name }}">{{ .Site.Params.hero.name }}</span>. <span id="rightsReserved" data-en="{{ .Site.Params.ui.labels.rights_reserved }}" data-ar="{{ .Site.Params.ar.ui.labels.rights_reserved }}">{{ .Site.Params.ui.labels.rights_reserved }}</span>.</p>
             </div>
         </div>
     </footer>
 
-    <script type="application/json" id="siteDataJson">{{ dict "en" (dict "hero" .Site.Params.hero "skills" .Site.Params.skills "education" .Site.Params.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "seo" .Site.Params.seo "ui" .Site.Params.ui) "ar" (dict "hero" .Site.Params.ar.hero "skills" .Site.Params.ar.skills "education" .Site.Params.ar.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "contact_location" .Site.Params.ar.contact.location "seo" .Site.Params.seo "ui" .Site.Params.ar.ui) | jsonify }}</script>
-
     <script>
-        // Configuration Data (loaded from config.toml in actual Hugo site)
-        const siteData = JSON.parse(document.getElementById('siteDataJson').textContent);
-
         // Language and Theme Management
         let currentLang = 'en';
         let currentTheme = localStorage.getItem('theme') || 'light';
@@ -1206,7 +1363,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             initTheme();
             initLanguage();
-            renderContent();
             initNavigation();
             initFooter();
         });
@@ -1228,273 +1384,35 @@
         function initLanguage() {
             document.body.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
             document.documentElement.setAttribute('lang', currentLang);
-            updateLanguageText();
+            updateI18nText();
+            updateI18nAlt();
         }
 
         document.getElementById('langToggle').addEventListener('click', function() {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
-            initLanguage();
-            renderContent();
-        });
-
-        function updateLanguageText() {
             const langText = document.querySelector('.lang-text');
             langText.textContent = currentLang === 'en' ? 'AR' : 'EN';
+            initLanguage();
+        });
 
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                const value = getUiText(key);
-                if (value) el.textContent = value;
+        function updateI18nText() {
+            document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+                const enText = el.getAttribute('data-en');
+                const arText = el.getAttribute('data-ar');
+                if (enText && arText) {
+                    el.textContent = currentLang === 'en' ? enText : arText;
+                }
             });
         }
 
-        function getUiText(key) {
-            const ui = currentLang === 'ar' ? siteData.ar.ui : siteData.en.ui;
-            const parts = key.split('.');
-            let cur = ui;
-            for (const p of parts) {
-                if (!cur || typeof cur !== 'object') return null;
-                cur = cur[p];
-            }
-            return typeof cur === 'string' ? cur : null;
-        }
-
-        // Render Content
-        function renderContent() {
-            const data = siteData[currentLang];
-            
-            // Hero Section
-            document.getElementById('heroName').textContent = data.hero.name;
-            document.getElementById('heroTagline').textContent = data.hero.tagline;
-            document.getElementById('heroGraduation').textContent = data.hero.graduation;
-            document.getElementById('headerName').textContent = data.hero.name;
-            document.getElementById('footerName').textContent = data.hero.name;
-
-            const profileImage = document.getElementById('profileImage');
-            profileImage.src = siteData.en.hero.profile_image;
-            profileImage.alt = currentLang === 'ar' ? (siteData.ar.hero.profile_image_alt || siteData.en.hero.profile_image_alt) : siteData.en.hero.profile_image_alt;
-
-            const role = data.hero.current_position?.role || siteData.en.hero.current_position.role;
-            const clinic = data.hero.current_position?.clinic || siteData.en.hero.current_position.clinic;
-            document.getElementById('heroRole').textContent = role;
-            document.getElementById('heroClinic').textContent = clinic;
-            
-            // Skills
-            renderSkills('clinicalSkills', data.skills.clinical);
-            renderSkills('digitalSkills', data.skills.digital);
-            renderSkills('softSkills', data.skills.soft);
-            
-            // Education
-            document.getElementById('universityName').textContent = data.education.university;
-            document.getElementById('gradYear').textContent = siteData.en.education.graduation_year;
-            renderDegrees();
-            renderTimeline();
-            
-            // Cases
-            renderCases();
-            
-            // Contact
-            renderContact();
-        }
-
-        function renderSkills(containerId, skills) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = skills.map((skill, index) => `
-                <div class="skill-item">
-                    <span class="skill-number">${index + 1}</span>
-                    <span class="skill-text">${skill}</span>
-                </div>
-            `).join('');
-        }
-
-        function renderDegrees() {
-            const data = siteData.en.education;
-            const container = document.getElementById('degreesContainer');
-            let html = '';
-            
-            if (data.master.obtained) {
-                const title = currentLang === 'en' ? data.master.title : (siteData.ar.education.master?.title || data.master.title);
-                html += `
-                    <div class="degree-item">
-                        <i class="fas fa-award degree-icon"></i>
-                        <div class="degree-info">
-                            <strong>${getUiText('labels.masters_degree') || (currentLang === 'en' ? "Master's Degree" : 'درجة الماجستير')}</strong>
-                            <p>${title}</p>
-                            <span class="degree-year">(${data.master.year})</span>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            if (data.phd.obtained) {
-                const title = currentLang === 'en' ? data.phd.title : (siteData.ar.education.phd?.title || data.phd.title);
-                html += `
-                    <div class="degree-item">
-                        <i class="fas fa-award degree-icon"></i>
-                        <div class="degree-info">
-                            <strong>${getUiText('labels.phd_degree') || (currentLang === 'en' ? "PhD Degree" : 'درجة الدكتوراه')}</strong>
-                            <p>${title}</p>
-                            <span class="degree-year">(${data.phd.year})</span>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            container.innerHTML = html;
-            container.style.display = html ? 'grid' : 'none';
-        }
-
-        function renderTimeline() {
-            const timeline = siteData.en.education.timeline;
-            const container = document.getElementById('timeline');
-            
-            container.innerHTML = timeline.map((item, index) => {
-                const event = currentLang === 'ar' && siteData.ar.education && siteData.ar.education.timeline 
-                    ? siteData.ar.education.timeline[index]?.event || item.event
-                    : item.event;
-                
-                return `
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-year">${item.year}</span>
-                            <p class="timeline-event">${event}</p>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function renderCases() {
-            const data = siteData.en.clinical_cases;
-            const container = document.getElementById('casesContainer');
-            
-            container.innerHTML = data.filter(cat => cat.enabled).map((category, catIndex) => {
-                const categoryName = currentLang === 'ar' ? (category.category_ar || category.category) : category.category;
-                
-                return `
-                    <div class="case-category">
-                        <h3 class="case-category-title">${categoryName}</h3>
-                        <div class="cases-grid">
-                            ${category.cases.map((caseItem, caseIndex) => {
-                                const description = currentLang === 'ar' ? (caseItem.description_ar || caseItem.description) : caseItem.description;
-                                const altText = currentLang === 'ar' ? (caseItem.alt_ar || caseItem.alt || description) : (caseItem.alt || description);
-                                
-                                return `
-                                    <div class="case-card">
-                                        <div class="case-image-wrapper single">
-                                            <img src="${caseItem.photo}" alt="${altText}" class="case-image" loading="lazy">
-                                        </div>
-                                        <div class="case-description">
-                                            <p>${description}</p>
-                                        </div>
-                                    </div>
-                                `;
-                            }).join('')}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function renderContact() {
-            const data = siteData.en.contact;
-            
-            // Contact Methods
-            const methodsContainer = document.getElementById('contactMethods');
-            let methodsHtml = '';
-            
-            if (data.phone) {
-                methodsHtml += `
-                    <a href="tel:${data.phone}" class="contact-method">
-                        <div class="contact-icon phone">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">${getUiText('labels.phone') || (currentLang === 'en' ? 'Phone' : 'الهاتف')}</span>
-                            <span class="contact-value">${data.phone}</span>
-                        </div>
-                    </a>
-                `;
-            }
-            
-            if (data.whatsapp) {
-                const waNumber = data.whatsapp.replace(/\s/g, '').replace('+', '');
-                methodsHtml += `
-                    <a href="https://wa.me/${waNumber}" target="_blank" class="contact-method">
-                        <div class="contact-icon whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">${getUiText('labels.whatsapp') || (currentLang === 'en' ? 'WhatsApp' : 'واتساب')}</span>
-                            <span class="contact-value">${data.whatsapp}</span>
-                        </div>
-                    </a>
-                `;
-            }
-            
-            if (data.email) {
-                methodsHtml += `
-                    <a href="mailto:${data.email}" class="contact-method">
-                        <div class="contact-icon email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-label">${getUiText('labels.email') || (currentLang === 'en' ? 'Email' : 'البريد')}</span>
-                            <span class="contact-value">${data.email}</span>
-                        </div>
-                    </a>
-                `;
-            }
-            
-            methodsContainer.innerHTML = methodsHtml;
-            
-            // Social Links
-            const socialContainer = document.getElementById('socialLinks');
-            let socialHtml = '';
-            
-            if (data.instagram) {
-                socialHtml += `<a href="${data.instagram}" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>`;
-            }
-            if (data.facebook) {
-                socialHtml += `<a href="${data.facebook}" target="_blank" class="social-link facebook"><i class="fab fa-facebook"></i></a>`;
-            }
-            if (data.linkedin) {
-                socialHtml += `<a href="${data.linkedin}" target="_blank" class="social-link linkedin"><i class="fab fa-linkedin"></i></a>`;
-            }
-            
-            socialContainer.innerHTML = socialHtml;
-            
-            // Location
-            if (data.location.enabled) {
-                const locationContainer = document.getElementById('locationContainer');
-                const address = currentLang === 'ar' && siteData.ar.contact_location?.address 
-                    ? siteData.ar.contact_location.address 
-                    : data.location.address;
-                
-                locationContainer.innerHTML = `
-                    <h3 class="location-title">${getUiText('labels.location') || (currentLang === 'en' ? 'Location' : 'الموقع')}</h3>
-                    <p class="location-address">${address}</p>
-                    <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps?q=${data.location.latitude},${data.location.longitude}&hl=en&z=14&output=embed"
-                            width="100%" 
-                            height="300" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <a 
-                        href="https://www.google.com/maps/search/?api=1&query=${data.location.latitude},${data.location.longitude}" 
-                        target="_blank" 
-                        class="btn btn-secondary">
-                        <i class="fas fa-directions"></i>
-                        ${getUiText('labels.get_directions') || (currentLang === 'en' ? 'Get Directions' : 'احصل على الاتجاهات')}
-                    </a>
-                `;
-                locationContainer.style.display = 'block';
-            }
+        function updateI18nAlt() {
+            document.querySelectorAll('[data-alt-en][data-alt-ar]').forEach(el => {
+                const enAlt = el.getAttribute('data-alt-en');
+                const arAlt = el.getAttribute('data-alt-ar');
+                if (enAlt && arAlt) {
+                    el.setAttribute('alt', currentLang === 'en' ? enAlt : arAlt);
+                }
+            });
         }
 
         // Navigation
@@ -1508,21 +1426,13 @@
             closeBtn.addEventListener('click', () => mobileNav.classList.remove('active'));
             
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function() {
                     mobileNav.classList.remove('active');
-                    
-                    // Update active state
-                    document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    
-                    if (this.classList.contains('nav-item')) {
-                        this.classList.add('active');
-                    }
+                    document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
+                    if (this.classList.contains('nav-item')) this.classList.add('active');
                 });
             });
             
-            // Intersection Observer for active nav
             const sections = document.querySelectorAll('.section');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1530,9 +1440,7 @@
                         const id = entry.target.id;
                         document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
                             item.classList.remove('active');
-                            if (item.getAttribute('href') === `#${id}`) {
-                                item.classList.add('active');
-                            }
+                            if (item.getAttribute('href') === `#${id}`) item.classList.add('active');
                         });
                     }
                 });
@@ -1544,7 +1452,6 @@
         // Footer
         function initFooter() {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
-            document.getElementById('footerName').textContent = siteData[currentLang].hero.name;
         }
     </script>
 </body>
