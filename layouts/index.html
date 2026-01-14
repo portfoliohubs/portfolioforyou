@@ -40,6 +40,28 @@
     <meta name="twitter:description" content="{{ $desc }}">
     <meta name="twitter:image" content="{{ ($seo.og_image | default "") | absURL }}">
 
+    <link rel="icon" href="{{ .Site.Params.hero.profile_image }}" sizes="any">
+    <link rel="shortcut icon" href="{{ .Site.Params.hero.profile_image }}">
+    <link rel="apple-touch-icon" href="{{ .Site.Params.hero.profile_image }}">
+
+    {{ with .Site.Params.integrations.google_search_console_verification }}
+    {{ if ne . "" }}
+    <meta name="google-site-verification" content="{{ . }}">
+    {{ end }}
+    {{ end }}
+
+    {{ with .Site.Params.integrations.google_analytics_measurement_id }}
+    {{ if ne . "" }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ . }}');
+    </script>
+    {{ end }}
+    {{ end }}
+
     {{ $schema := dict "@context" "https://schema.org" "@type" (slice "Dentist" "LocalBusiness") "name" $doctorNameEn "url" .Permalink "image" (($seo.og_image | default "") | absURL) "telephone" (.Site.Params.contact.phone | default "") "email" (.Site.Params.contact.email | default "") "sameAs" (slice (.Site.Params.contact.instagram | default "") (.Site.Params.contact.facebook | default "") (.Site.Params.contact.linkedin | default "")) }}
     <script type="application/ld+json">{{ $schema | jsonify }}</script>
     
@@ -295,7 +317,8 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            object-fit: cover;
+            object-fit: contain;
+            background: var(--bg-secondary);
             border: 5px solid var(--primary-color);
             box-shadow: var(--shadow-lg);
         }
@@ -623,7 +646,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background: var(--bg-secondary);
         }
 
         .case-description {
