@@ -192,6 +192,10 @@ defaultContentLanguage = "en"
     
     [[params.ar.clinical_cases.cases]]
       description = "علاج تبييض الأسنان"
+
+
+    [[params.ar.clinical_cases.cases]]
+      description = "علاج تبييض الأسنان كيت "      
   
   [[params.ar.clinical_cases]]
     category = "طب الأسنان الترميمي"
