@@ -571,35 +571,6 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .case-labels {
-            display: flex;
-            justify-content: space-around;
-            padding: 1rem;
-            background: var(--bg-secondary);
-        }
-
-        .case-label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-        }
-
-        .before-label {
-            background: #ef4444;
-            color: white;
-        }
-
-        .after-label {
-            background: #10b981;
-            color: white;
-        }
-
-        .case-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
         .case-image-wrapper {
             position: relative;
             padding-top: 100%;
@@ -612,7 +583,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .case-description {
@@ -1238,8 +1219,7 @@
                         category: "Cosmetic Dentistry",
                         cases: [
                             {
-                                before: "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before",
-                                after: "https://via.placeholder.com/400x400/10b981/ffffff?text=After",
+                                photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
                                 description: "Smile makeover with veneers"
                             }
                         ]
@@ -1474,16 +1454,9 @@
                                 
                                 return `
                                     <div class="case-card">
-                                        <div class="case-labels">
-                                            <span class="case-label before-label">${currentLang === 'en' ? 'Before' : 'قبل'}</span>
-                                            <span class="case-label after-label">${currentLang === 'en' ? 'After' : 'بعد'}</span>
-                                        </div>
-                                        <div class="case-images">
-                                            <div class="case-image-wrapper before">
-                                                <img src="${caseItem.before}" alt="Before" class="case-image" loading="lazy">
-                                            </div>
-                                            <div class="case-image-wrapper after">
-                                                <img src="${caseItem.after}" alt="After" class="case-image" loading="lazy">
+                                        <div class="case-image-wrapper">
+                                            <div class="case-image">
+                                                <img src="${caseItem.photo}" alt="Clinical Case" loading="lazy">
                                             </div>
                                         </div>
                                         <div class="case-description">
