@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Data.en.hero.name }} - Portfolio</title>
+    <title>{{ .Site.Params.hero.name }} - Portfolio</title>
     <meta name="description" content="Professional dental portfolio showcasing clinical cases, skills, and expertise in modern dentistry">
     
     <!-- SEO Meta Tags -->
 <meta name="keywords" content="dentist, dental portfolio, clinical cases, cosmetic dentistry, restorative dentistry, dental specialist, {{ .Site.Params.SEO.keywords }}">
-    <meta name="author" content="{{ .Site.Data.en.hero.name }}">
+    <meta name="author" content="{{ .Site.Params.SEO.keywords }}">
     <meta name="robots" content="index, follow">
     <meta name="language" content="en">
     <meta name="revisit-after" content="7 days">
@@ -17,19 +17,19 @@
     <meta name="ICBM" content="31.2653, 32.3019">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="{{ .Site.Data.en.hero.name }} - Dental Portfolio">
+    <meta property="og:title" content="{{ .Site.Params.hero.name }} - Dental Portfolio">
     <meta property="og:description" content="Professional dental portfolio showcasing clinical cases and expertise">
-    <meta property="og:image" content="{{ .Site.Data.en.hero.profile_image }}">
+    <meta property="og:image" content="{{ .Site.Params.hero.profile_image }}">
     <meta property="og:url" content="{{ .Site.BaseURL }}">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{{ .Site.Data.en.hero.name }} Portfolio">
+    <meta property="og:site_name" content="{{ .Site.Params.hero.name }} Portfolio">
     <meta property="og:locale" content="en_US">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ .Site.Data.en.hero.name }} - Dental Portfolio">
+    <meta name="twitter:title" content="{{ .Site.Params.hero.name }} - Dental Portfolio">
     <meta name="twitter:description" content="Professional dental portfolio showcasing clinical cases and expertise">
-    <meta name="twitter:image" content="{{ .Site.Data.en.hero.profile_image }}">
+    <meta name="twitter:image" content="{{ .Site.Params.hero.profile_image }}">
     <meta name="twitter:creator" content="@{{ .Site.Params.SEO.twitter_username }}">
     
     <!-- Canonical URL -->
@@ -40,23 +40,23 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "{{ .Site.Data.en.hero.name }}",
-      "jobTitle": "{{ .Site.Data.en.hero.current_position.role }}",
+      "name": "{{ .Site.Params.hero.name }}",
+      "jobTitle": "{{ .Site.Params.hero.current_position.role }}",
       "worksFor": {
         "@type": "Organization",
-        "name": "{{ .Site.Data.en.hero.current_position.clinic }}"
+        "name": "{{ .Site.Params.hero.current_position.clinic }}"
       },
       "alumniOf": {
         "@type": "EducationalOrganization",
-        "name": "{{ .Site.Data.en.education.university }}"
+        "name": "{{ .Site.Params.education.university }}"
       },
       "knowsAbout": ["Dentistry", "Cosmetic Dentistry", "Restorative Dentistry", "Endodontics"],
-      "image": "{{ .Site.Data.en.hero.profile_image }}",
+      "image": "{{ .Site.Params.hero.profile_image }}",
       "url": "{{ .Site.BaseURL }}",
       "sameAs": [
-        "{{ .Site.Data.en.contact.instagram }}",
-        "{{ .Site.Data.en.contact.facebook }}",
-        "{{ .Site.Data.en.contact.linkedin }}"
+        "{{ .Site.Params.contact.instagram }}",
+        "{{ .Site.Params.contact.facebook }}",
+        "{{ .Site.Params.contact.linkedin }}"
       ]
     }
     </script>
