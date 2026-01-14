@@ -1599,7 +1599,7 @@
         // Footer
         function initFooter() {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
-            document.getElementById('footerName').textContent = siteData[currentLang].hero.name;
+            document.getElementById('footerName').textContent = '{{ .Site.Params.hero.name }}';
         }
     </script>
 </body>
