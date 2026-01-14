@@ -112,6 +112,11 @@ defaultContentLanguage = "en"
       description = "Teeth whitening 1"
       alt = "Professional teeth whitening results showing brighter smile"
 
+    [[params.clinical_cases.cases]]
+      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
+      description = "Teeth whitening 2"
+      alt = "Professional teeth whitening results showing brighter smile"
+      
   [[params.clinical_cases]]
     enabled = true
     category = "Restorative Dentistry"
