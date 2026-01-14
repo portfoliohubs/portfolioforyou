@@ -1163,13 +1163,13 @@
         const siteData = {
             en: {
                 hero: {
-                    name: "Dr. Your Name",
+                    name: "Dr. Michael Nabil",
                     tagline: "Dental Specialist",
                     graduation: "Graduated 2020 - Faculty of Dentistry",
-                    profile_image: "https://via.placeholder.com/200",
+                    profile_image: "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572",
                     current_position: {
                         role: "Dental Specialist",
-                        clinic: "Your Clinic Name"
+                        clinic: "Grand center"
                     }
                 },
                 skills: {
@@ -1219,8 +1219,22 @@
                         category: "Cosmetic Dentistry",
                         cases: [
                             {
-                                photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
+                                photo: "https://github.com/user-attachments/assets/dde16918-be0e-4c8d-a9b4-1a5afe4ea7e7",
                                 description: "Smile makeover with veneers"
+                            },
+                            {
+                                photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
+                                description: "Teeth whitening treatment"
+                            }
+                        ]
+                    },
+                    {
+                        enabled: true,
+                        category: "Restorative Dentistry",
+                        cases: [
+                            {
+                                photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
+                                description: "Crown and bridge restoration"
                             }
                         ]
                     }
@@ -1233,7 +1247,7 @@
                     facebook: "https://facebook.com/",
                     linkedin: "https://linkedin.com/in/",
                     location: {
-                        enabled: false,
+                        enabled: true,
                         address: "123 Main Street, City, Country",
                         latitude: "31.2653",
                         longitude: "32.3019"
@@ -1344,6 +1358,7 @@
             document.getElementById('heroName').textContent = data.hero.name;
             document.getElementById('heroTagline').textContent = data.hero.tagline;
             document.getElementById('heroGraduation').textContent = data.hero.graduation;
+            document.getElementById('profileImage').src = data.hero.profile_image;
             
             // Skills
             renderSkills('clinicalSkills', data.skills.clinical);
