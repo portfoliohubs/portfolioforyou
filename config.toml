@@ -9,7 +9,7 @@ defaultContentLanguage = "en"
     name = "Dr. Your Name"
     tagline = "Dental Specialist"
     graduation = "Graduated 2020 - Faculty of Dentistry"
-    profile_image = "https://via.placeholder.com/200"
+    profile_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572"
     
     [params.hero.current_position]
       role = "Dental Specialist"
@@ -88,7 +88,7 @@ defaultContentLanguage = "en"
     category = "Cosmetic Dentistry"
     
     [[params.clinical_cases.cases]]
-      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
+      photo = "https://github.com/user-attachments/assets/dde16918-be0e-4c8d-a9b4-1a5afe4ea7e7"
       description = "Smile makeover with veneers"
     
     [[params.clinical_cases.cases]]
@@ -113,7 +113,7 @@ defaultContentLanguage = "en"
     linkedin = "https://linkedin.com/in/yourprofile"
     
     [params.contact.location]
-      enabled = false
+      enabled = true
       address = "123 Main Street, City, Country"
       latitude = "31.2653"
       longitude = "32.3019"
