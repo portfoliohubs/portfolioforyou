@@ -998,12 +998,12 @@
                     <i class="fas fa-times"></i>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="#home" data-en="Profile" data-ar="الملف الشخصي">Profile</a></li>
-                    <li><a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a></li>
-                    <li><a href="#education" data-en="Education" data-ar="التعليم">Education</a></li>
-                    <li><a href="#cases" data-en="Clinical Cases" data-ar="الحالات السريرية">Clinical Cases</a></li>
-                    <li><a href="#blog" data-en="Blog" data-ar="المدونة">Blog</a></li>
-                    <li><a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a></li>
+                    <li><a href="#home" data-key="nav.profile">{{ .Site.Params.ui.nav.profile }}</a></li>
+                    <li><a href="#skills" data-key="nav.skills">{{ .Site.Params.ui.nav.skills }}</a></li>
+                    <li><a href="#education" data-key="nav.education">{{ .Site.Params.ui.nav.education }}</a></li>
+                    <li><a href="#cases" data-key="nav.clinical_cases">{{ .Site.Params.ui.nav.clinical_cases }}</a></li>
+                    <li><a href="#blog" data-key="nav.blog">{{ .Site.Params.ui.nav.blog }}</a></li>
+                    <li><a href="#contact" data-key="nav.contact">{{ .Site.Params.ui.nav.contact }}</a></li>
                 </ul>
             </div>
         </nav>
@@ -1029,9 +1029,9 @@
                 
                 <div class="hero-position" id="heroPosition">
                     <p>
-                        <span>Now working as</span>
+                        <span data-key="labels.now_working_as">{{ .Site.Params.ui.labels.now_working_as }}</span>
                         <strong id="heroRole">{{ .Site.Params.hero.current_position.role }}</strong>
-                        <span>at</span>
+                        <span data-key="labels.at">{{ .Site.Params.ui.labels.at }}</span>
                         <strong id="heroClinic">{{ .Site.Params.hero.current_position.clinic }}</strong>
                     </p>
                 </div>
@@ -1044,14 +1044,14 @@
                 <div class="icon-circle">
                     <i class="fas fa-star"></i>
                 </div>
-                <h2 class="section-title" data-en="Professional Skills" data-ar="المهارات المهنية">Professional Skills</h2>
+                <h2 class="section-title" data-key="skills.title">{{ .Site.Params.ui.skills.title }}</h2>
             </div>
             
             <div class="skills-container">
                 <div class="skill-category">
                     <h3 class="skill-category-title">
                         <i class="fas fa-tooth"></i>
-                        <span data-en="Clinical Skills" data-ar="المهارات السريرية">Clinical Skills</span>
+                        <span data-key="skills.clinical_title">{{ .Site.Params.ui.skills.clinical_title }}</span>
                     </h3>
                     <div class="skill-list" id="clinicalSkills"></div>
                 </div>
@@ -1059,7 +1059,7 @@
                 <div class="skill-category">
                     <h3 class="skill-category-title">
                         <i class="fas fa-laptop"></i>
-                        <span data-en="Digital Skills" data-ar="المهارات الرقمية">Digital Skills</span>
+                        <span data-key="skills.digital_title">{{ .Site.Params.ui.skills.digital_title }}</span>
                     </h3>
                     <div class="skill-list" id="digitalSkills"></div>
                 </div>
@@ -1067,7 +1067,7 @@
                 <div class="skill-category">
                     <h3 class="skill-category-title">
                         <i class="fas fa-users"></i>
-                        <span data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</span>
+                        <span data-key="skills.soft_title">{{ .Site.Params.ui.skills.soft_title }}</span>
                     </h3>
                     <div class="skill-list" id="softSkills"></div>
                 </div>
@@ -1080,26 +1080,26 @@
                 <div class="icon-circle">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <h2 class="section-title" data-en="Education & Timeline" data-ar="التعليم والخط الزمني">Education & Timeline</h2>
+                <h2 class="section-title" data-key="education.title">{{ .Site.Params.ui.education.title }}</h2>
             </div>
             
             <div class="education-container">
                 <div class="university-info">
-                    <h3 class="university-name" id="universityName">University Name - Faculty of Dentistry</h3>
+                    <h3 class="university-name" id="universityName">{{ .Site.Params.education.university }}</h3>
                     <p class="graduation-year">
-                        <span data-en="Graduated" data-ar="تخرج">Graduated</span>: <span id="gradYear">2020</span>
+                        <span data-key="education.graduated_label">{{ .Site.Params.ui.education.graduated_label }}</span>: <span id="gradYear">{{ .Site.Params.education.graduation_year }}</span>
                     </p>
                 </div>
                 
                 <div class="degrees-container" id="degreesContainer"></div>
                 
                 <div class="timeline-container">
-                    <h3 class="timeline-title" data-en="Career Timeline" data-ar="الخط الزمني المهني">Career Timeline</h3>
+                    <h3 class="timeline-title" data-key="education.career_timeline_title">{{ .Site.Params.ui.education.career_timeline_title }}</h3>
                     <div class="timeline" id="timeline"></div>
                 </div>
                 
                 <div class="certificates-container" id="certificatesSection" style="display: none;">
-                    <h3 class="certificates-title" data-en="Courses & Certifications" data-ar="الدورات والشهادات">Courses & Certifications</h3>
+                    <h3 class="certificates-title" data-key="education.courses_title">{{ .Site.Params.ui.education.courses_title }}</h3>
                     <div class="certificates-grid" id="certificates"></div>
                 </div>
             </div>
@@ -1111,8 +1111,8 @@
                 <div class="icon-circle">
                     <i class="fas fa-tooth"></i>
                 </div>
-                <h2 class="section-title" data-en="Clinical Cases" data-ar="الحالات السريرية">Clinical Cases</h2>
-                <p class="section-subtitle" data-en="Before & After Gallery" data-ar="معرض قبل وبعد">Before & After Gallery</p>
+                <h2 class="section-title" data-key="cases.title">{{ .Site.Params.ui.cases.title }}</h2>
+                <p class="section-subtitle" data-key="cases.subtitle">{{ .Site.Params.ui.cases.subtitle }}</p>
             </div>
             
             <div class="cases-container" id="casesContainer"></div>
@@ -1124,12 +1124,12 @@
                 <div class="icon-circle">
                     <i class="fas fa-blog"></i>
                 </div>
-                <h2 class="section-title" data-en="Latest Articles" data-ar="أحدث المقالات">Latest Articles</h2>
-                <p class="section-subtitle" data-en="Insights and Knowledge" data-ar="رؤى ومعرفة">Insights and Knowledge</p>
+                <h2 class="section-title" data-key="blog.title">{{ .Site.Params.ui.blog.title }}</h2>
+                <p class="section-subtitle" data-key="blog.subtitle">{{ .Site.Params.ui.blog.subtitle }}</p>
             </div>
             
             <div class="blog-container" id="blogContainer">
-                <p style="text-align: center; color: var(--text-light);">No blog posts yet. Add your first post in config.toml</p>
+                <p id="blogEmpty" data-key="blog.empty_text" style="text-align: center; color: var(--text-light);">{{ .Site.Params.ui.blog.empty_text }}</p>
             </div>
         </section>
 
@@ -1139,15 +1139,15 @@
                 <div class="icon-circle">
                     <i class="fas fa-envelope"></i>
                 </div>
-                <h2 class="section-title" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h2>
-                <p class="section-subtitle" data-en="Let's connect and collaborate" data-ar="لنتواصل ونتعاون">Let's connect and collaborate</p>
+                <h2 class="section-title" data-key="contact.title">{{ .Site.Params.ui.contact.title }}</h2>
+                <p class="section-subtitle" data-key="contact.subtitle">{{ .Site.Params.ui.contact.subtitle }}</p>
             </div>
             
             <div class="contact-container">
                 <div class="contact-methods" id="contactMethods"></div>
                 
                 <div class="social-media">
-                    <h3 class="social-title" data-en="Follow Me" data-ar="تابعني">Follow Me</h3>
+                    <h3 class="social-title" data-key="contact.follow_me_title">{{ .Site.Params.ui.contact.follow_me_title }}</h3>
                     <div class="social-links" id="socialLinks"></div>
                 </div>
                 
@@ -1162,37 +1162,37 @@
             <nav class="bottom-nav">
                 <a href="#home" class="nav-item active">
                     <i class="fas fa-user"></i>
-                    <span data-en="Profile" data-ar="الملف">Profile</span>
+                    <span data-key="nav.profile">{{ .Site.Params.ui.nav.profile }}</span>
                 </a>
                 <a href="#skills" class="nav-item">
                     <i class="fas fa-star"></i>
-                    <span data-en="Skills" data-ar="المهارات">Skills</span>
+                    <span data-key="nav.skills">{{ .Site.Params.ui.nav.skills }}</span>
                 </a>
                 <a href="#education" class="nav-item">
                     <i class="fas fa-graduation-cap"></i>
-                    <span data-en="Education" data-ar="التعليم">Education</span>
+                    <span data-key="nav.education">{{ .Site.Params.ui.nav.education }}</span>
                 </a>
                 <a href="#cases" class="nav-item">
                     <i class="fas fa-tooth"></i>
-                    <span data-en="Cases" data-ar="الحالات">Cases</span>
+                    <span data-key="nav.cases_short">{{ .Site.Params.ui.nav.cases_short }}</span>
                 </a>
                 <a href="#blog" class="nav-item">
                     <i class="fas fa-blog"></i>
-                    <span data-en="Blog" data-ar="مدونة">Blog</span>
+                    <span data-key="nav.blog">{{ .Site.Params.ui.nav.blog }}</span>
                 </a>
                 <a href="#contact" class="nav-item">
                     <i class="fas fa-envelope"></i>
-                    <span data-en="Contact" data-ar="تواصل">Contact</span>
+                    <span data-key="nav.contact">{{ .Site.Params.ui.nav.contact }}</span>
                 </a>
             </nav>
             
             <div class="footer-info">
-                <p>&copy; <span id="currentYear"></span> <span id="footerName">{{ .Site.Params.hero.name }}</span>. <span data-en="All rights reserved" data-ar="جميع الحقوق محفوظة">All rights reserved</span>.</p>
+                <p>&copy; <span id="currentYear"></span> <span id="footerName">{{ .Site.Params.hero.name }}</span>. <span id="rightsReserved" data-key="labels.rights_reserved">{{ .Site.Params.ui.labels.rights_reserved }}</span>.</p>
             </div>
         </div>
     </footer>
 
-    <script type="application/json" id="siteDataJson">{{ dict "en" (dict "hero" .Site.Params.hero "skills" .Site.Params.skills "education" .Site.Params.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "seo" .Site.Params.seo) "ar" (dict "hero" .Site.Params.ar.hero "skills" .Site.Params.ar.skills "education" .Site.Params.ar.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "contact_location" .Site.Params.ar.contact.location "seo" .Site.Params.seo) | jsonify }}</script>
+    <script type="application/json" id="siteDataJson">{{ dict "en" (dict "hero" .Site.Params.hero "skills" .Site.Params.skills "education" .Site.Params.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "seo" .Site.Params.seo "ui" .Site.Params.ui) "ar" (dict "hero" .Site.Params.ar.hero "skills" .Site.Params.ar.skills "education" .Site.Params.ar.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "contact_location" .Site.Params.ar.contact.location "seo" .Site.Params.seo "ui" .Site.Params.ar.ui) | jsonify }}</script>
 
     <script>
         // Configuration Data (loaded from config.toml in actual Hugo site)
@@ -1240,14 +1240,23 @@
         function updateLanguageText() {
             const langText = document.querySelector('.lang-text');
             langText.textContent = currentLang === 'en' ? 'AR' : 'EN';
-            
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const enText = el.getAttribute('data-en');
-                const arText = el.getAttribute('data-ar');
-                if (enText && arText) {
-                    el.textContent = currentLang === 'en' ? enText : arText;
-                }
+
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                const value = getUiText(key);
+                if (value) el.textContent = value;
             });
+        }
+
+        function getUiText(key) {
+            const ui = currentLang === 'ar' ? siteData.ar.ui : siteData.en.ui;
+            const parts = key.split('.');
+            let cur = ui;
+            for (const p of parts) {
+                if (!cur || typeof cur !== 'object') return null;
+                cur = cur[p];
+            }
+            return typeof cur === 'string' ? cur : null;
         }
 
         // Render Content
@@ -1309,7 +1318,7 @@
                     <div class="degree-item">
                         <i class="fas fa-award degree-icon"></i>
                         <div class="degree-info">
-                            <strong>${currentLang === 'en' ? "Master's Degree" : 'درجة الماجستير'}</strong>
+                            <strong>${getUiText('labels.masters_degree') || (currentLang === 'en' ? "Master's Degree" : 'درجة الماجستير')}</strong>
                             <p>${title}</p>
                             <span class="degree-year">(${data.master.year})</span>
                         </div>
@@ -1323,7 +1332,7 @@
                     <div class="degree-item">
                         <i class="fas fa-award degree-icon"></i>
                         <div class="degree-info">
-                            <strong>${currentLang === 'en' ? "PhD Degree" : 'درجة الدكتوراه'}</strong>
+                            <strong>${getUiText('labels.phd_degree') || (currentLang === 'en' ? "PhD Degree" : 'درجة الدكتوراه')}</strong>
                             <p>${title}</p>
                             <span class="degree-year">(${data.phd.year})</span>
                         </div>
@@ -1402,7 +1411,7 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-info">
-                            <span class="contact-label">${currentLang === 'en' ? 'Phone' : 'الهاتف'}</span>
+                            <span class="contact-label">${getUiText('labels.phone') || (currentLang === 'en' ? 'Phone' : 'الهاتف')}</span>
                             <span class="contact-value">${data.phone}</span>
                         </div>
                     </a>
@@ -1417,7 +1426,7 @@
                             <i class="fab fa-whatsapp"></i>
                         </div>
                         <div class="contact-info">
-                            <span class="contact-label">${currentLang === 'en' ? 'WhatsApp' : 'واتساب'}</span>
+                            <span class="contact-label">${getUiText('labels.whatsapp') || (currentLang === 'en' ? 'WhatsApp' : 'واتساب')}</span>
                             <span class="contact-value">${data.whatsapp}</span>
                         </div>
                     </a>
@@ -1431,7 +1440,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-info">
-                            <span class="contact-label">${currentLang === 'en' ? 'Email' : 'البريد'}</span>
+                            <span class="contact-label">${getUiText('labels.email') || (currentLang === 'en' ? 'Email' : 'البريد')}</span>
                             <span class="contact-value">${data.email}</span>
                         </div>
                     </a>
@@ -1464,7 +1473,7 @@
                     : data.location.address;
                 
                 locationContainer.innerHTML = `
-                    <h3 class="location-title">${currentLang === 'en' ? 'Location' : 'الموقع'}</h3>
+                    <h3 class="location-title">${getUiText('labels.location') || (currentLang === 'en' ? 'Location' : 'الموقع')}</h3>
                     <p class="location-address">${address}</p>
                     <div class="map-container">
                         <iframe 
@@ -1481,7 +1490,7 @@
                         target="_blank" 
                         class="btn btn-secondary">
                         <i class="fas fa-directions"></i>
-                        ${currentLang === 'en' ? 'Get Directions' : 'احصل على الاتجاهات'}
+                        ${getUiText('labels.get_directions') || (currentLang === 'en' ? 'Get Directions' : 'احصل على الاتجاهات')}
                     </a>
                 `;
                 locationContainer.style.display = 'block';
