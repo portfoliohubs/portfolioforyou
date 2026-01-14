@@ -40,9 +40,9 @@
     <meta name="twitter:description" content="{{ $desc }}">
     <meta name="twitter:image" content="{{ ($seo.og_image | default "") | absURL }}">
 
-    <link rel="icon" href="{{ .Site.Params.hero.profile_image }}" sizes="any">
-    <link rel="shortcut icon" href="{{ .Site.Params.hero.profile_image }}">
-    <link rel="apple-touch-icon" href="{{ .Site.Params.hero.profile_image }}">
+    <link rel="icon" href="{{ .Site.Params.hero.og_image }}" sizes="any">
+    <link rel="shortcut icon" href="{{ .Site.Params.hero.og_image }}">
+    <link rel="apple-touch-icon" href="{{ .Site.Params.hero.og_image }}">
 
     {{ with .Site.Params.integrations.google_search_console_verification }}
     {{ if ne . "" }}
