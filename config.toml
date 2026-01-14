@@ -9,8 +9,8 @@ defaultContentLanguage = "en"
     name = "Dr. Michael Nabil"
     tagline = "Dental Specialist"
     graduation = "Graduated 2020 - Faculty of Dentistry"
-    profile_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572)"
-    profile_image_alt = "Profile photo of Dr. Your Name"
+    profile_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572"
+    profile_image_alt = "Profile photo of Dr. Michael Nabil"
     
     [params.hero.current_position]
       role = "Dental Specialist"
