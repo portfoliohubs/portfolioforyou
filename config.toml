@@ -38,6 +38,10 @@ defaultContentLanguage = "en"
       "د. ماكل نبيل"
     ]
 
+  [params.integrations]
+    google_search_console_verification = ""
+    google_analytics_measurement_id = ""
+
   [params.ui]
     [params.ui.nav]
       profile = "Profile"
