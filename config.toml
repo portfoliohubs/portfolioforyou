@@ -1,16 +1,7 @@
-baseURL = "https://portfoliohubs.github.io/portfolioforyou/"
+baseURL = "https://yourusername.github.io/yourrepo/"
 languageCode = "en-us"
-title = "Dr. Portfolio"
+title = "Dr. Michael Nabil"
 defaultContentLanguage = "en"
-
-# SEO Configuration
-[params.SEO]
-  keywords = "dental implants, veneers, teeth whitening, root canal, smile makeover, cosmetic dentistry Egypt, best dentist Cairo, dental clinic Egypt, orthodontics, pediatric dentistry, oral surgery, gum treatment, dental crowns, bridges, dentures, digital dentistry, 3D printing, CAD/CAM"
-  twitter_username = "drmichaelnabil"
-  google_analytics = "G-XXXXXXXXXX"
-  google_site_verification = "your-verification-code"
-  bing_site_verification = "your-verification-code"
-  yandex_verification = "your-verification-code"
 
 [params]
   # Hero Section
@@ -18,11 +9,11 @@ defaultContentLanguage = "en"
     name = "Dr. Michael Nabil"
     tagline = "Dental Specialist"
     graduation = "Graduated 2020 - Faculty of Dentistry"
-    profile_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572"
+    profile_image = "https://via.placeholder.com/200"
     
     [params.hero.current_position]
       role = "Dental Specialist"
-      clinic = "Grand center"
+      clinic = "Your Clinic Name"
 
   # Skills Section
   [params.skills]
@@ -61,12 +52,12 @@ defaultContentLanguage = "en"
     graduation_year = "2020"
     
     [params.education.master]
-      obtained = true
+      obtained = false
       title = "Master in Oral Medicine"
       year = "2024"
     
     [params.education.phd]
-      obtained = true
+      obtained = false
       title = "PhD in Dental Sciences"
       year = "2028"
     
@@ -91,40 +82,29 @@ defaultContentLanguage = "en"
     #   title = "Advanced Endodontics Course"
     #   image = "cert1.jpg"
 
-  # Clinical Cases Section - Simplified Addition Method
-  # Just add: photo, description, alt text
+  # Clinical Cases Section
   [[params.clinical_cases]]
     enabled = true
     category = "Cosmetic Dentistry"
     
     [[params.clinical_cases.cases]]
-      photo = "https://github.com/user-attachments/assets/dde16918-be0e-4c8d-a9b4-1a5afe4ea7e7"
+      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
+      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
       description = "Smile makeover with veneers"
-      alt = "Before and after smile makeover showing porcelain veneers transformation"
     
     [[params.clinical_cases.cases]]
-      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
+      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
+      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
       description = "Teeth whitening treatment"
-      alt = "Professional teeth whitening results showing brighter smile"
-
-    [[params.clinical_cases.cases]]
-      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
-      description = "Teeth whitening 1"
-      alt = "Professional teeth whitening results showing brighter smile"
-
-    [[params.clinical_cases.cases]]
-      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
-      description = "Teeth whitening 2"
-      alt = "Professional teeth whitening results showing brighter smile"
 
   [[params.clinical_cases]]
     enabled = true
     category = "Restorative Dentistry"
     
     [[params.clinical_cases.cases]]
-      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
+      before = "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before"
+      after = "https://via.placeholder.com/400x400/10b981/ffffff?text=After"
       description = "Crown and bridge restoration"
-      alt = "Dental crown and bridge restoration showing restored teeth"
 
   # Contact Section
   [params.contact]
@@ -136,7 +116,7 @@ defaultContentLanguage = "en"
     linkedin = "https://linkedin.com/in/yourprofile"
     
     [params.contact.location]
-      enabled = true
+      enabled = false
       address = "123 Main Street, City, Country"
       latitude = "31.2653"
       longitude = "32.3019"
