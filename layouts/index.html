@@ -1048,23 +1048,23 @@
             <div class="hero-content">
                 <div class="profile-image-container">
                     <img 
-                        src="{{ .Site.Data.en.hero.profile_image }}" 
-                        alt="{{ .Site.Data.en.hero.name }} - Professional Dental Specialist Portrait"
+                        src="{{ .Site.Params.hero.profile_image }}" 
+                        alt="{{ .Site.Params.hero.name }} - Professional Dental Specialist Portrait"
                         class="profile-image"
                         id="profileImage"
                     >
                 </div>
                 
-                <h1 class="hero-name" id="heroName">Dr. Your Name</h1>
-                <p class="hero-tagline" id="heroTagline">Dental Specialist</p>
-                <p class="hero-graduation" id="heroGraduation">Graduated 2020 - Faculty of Dentistry</p>
+                <h1 class="hero-name" id="heroName">{{ .Site.Params.hero.name }}</h1>
+                <p class="hero-tagline" id="heroTagline">{{ .Site.Params.hero.tagline }}</p>
+                <p class="hero-graduation" id="heroGraduation">{{ .Site.Params.hero.graduation }}</p>
                 
                 <div class="hero-position" id="heroPosition">
                     <p>
                         <span>Now working as</span>
-                        <strong>Dental Specialist</strong>
+                        <strong>{{ .Site.Params.hero.current_position.role }}</strong>
                         <span>at</span>
-                        <strong>Your Clinic</strong>
+                        <strong>{{ .Site.Params.hero.current_position.clinic }}</strong>
                     </p>
                 </div>
             </div>
@@ -1085,7 +1085,14 @@
                         <i class="fas fa-tooth"></i>
                         <span data-en="Clinical Skills" data-ar="المهارات السريرية">Clinical Skills</span>
                     </h3>
-                    <div class="skill-list" id="clinicalSkills"></div>
+                    <div class="skill-list">
+                        {{ range .Site.Params.skills.clinical }}
+                        <div class="skill-item">
+                            <span class="skill-number">{{ add 1 . }}</span>
+                            <span class="skill-text">{{ . }}</span>
+                        </div>
+                        {{ end }}
+                    </div>
                 </div>
                 
                 <div class="skill-category">
@@ -1093,7 +1100,14 @@
                         <i class="fas fa-laptop"></i>
                         <span data-en="Digital Skills" data-ar="المهارات الرقمية">Digital Skills</span>
                     </h3>
-                    <div class="skill-list" id="digitalSkills"></div>
+                    <div class="skill-list">
+                        {{ range .Site.Params.skills.digital }}
+                        <div class="skill-item">
+                            <span class="skill-number">{{ add 1 . }}</span>
+                            <span class="skill-text">{{ . }}</span>
+                        </div>
+                        {{ end }}
+                    </div>
                 </div>
                 
                 <div class="skill-category">
@@ -1101,7 +1115,14 @@
                         <i class="fas fa-users"></i>
                         <span data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</span>
                     </h3>
-                    <div class="skill-list" id="softSkills"></div>
+                    <div class="skill-list">
+                        {{ range .Site.Params.skills.soft }}
+                        <div class="skill-item">
+                            <span class="skill-number">{{ add 1 . }}</span>
+                            <span class="skill-text">{{ . }}</span>
+                        </div>
+                        {{ end }}
+                    </div>
                 </div>
             </div>
         </section>
@@ -1147,7 +1168,28 @@
                 <p class="section-subtitle" data-en="Before & After Gallery" data-ar="معرض قبل وبعد">Before & After Gallery</p>
             </div>
             
-            <div class="cases-container" id="casesContainer"></div>
+            <div class="cases-container">
+                {{ range .Site.Params.clinical_cases }}
+                {{ if .enabled }}
+                <div class="case-category">
+                    <h3 class="case-category-title">{{ .category }}</h3>
+                    <div class="cases-grid">
+                        {{ range .cases }}
+                        <div class="case-card">
+                            <div class="case-image-wrapper">
+                                <div class="case-image">
+                                    <img src="{{ .photo }}" alt="{{ .alt | default .description }}" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="case-description">
+                                <p>{{ .description }}</p>
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
         </section>
 
         <!-- Blog Section -->
@@ -1220,286 +1262,20 @@
             
             <div class="footer-info">
                 <p>&copy; <span id="currentYear"></span> <span id="footerName">Dr. Portfolio</span>. <span data-en="All rights reserved" data-ar="جميع الحقوق محفوظة">All rights reserved</span>.</p>
-            </div>
         </div>
     </footer>
 
     <script>
-        // Load configuration from config.toml
-        let siteData = {
-            en: {},
-            ar: {}
-        };
-
-        // Simple TOML parser
-        function parseToml(tomlStr) {
-            const lines = tomlStr.split('\n');
-            const result = { params: {} };
-            let currentSection = null;
-            let currentArray = null;
-            let sectionPath = '';
-            
-            for (let i = 0; i < lines.length; i++) {
-                let line = lines[i].trim();
-                if (!line || line.startsWith('#')) continue;
-                
-                // Section headers like [params.hero]
-                if (line.startsWith('[') && line.endsWith(']')) {
-                    sectionPath = line.slice(1, -1);
-                    if (sectionPath.includes('.')) {
-                        const parts = sectionPath.split('.');
-                        let current = result.params;
-                        for (let j = 0; j < parts.length - 1; j++) {
-                            if (!current[parts[j]]) current[parts[j]] = {};
-                            current = current[parts[j]];
-                        }
-                        if (!current[parts[parts.length - 1]]) current[parts[parts.length - 1]] = {};
-                        currentSection = current[parts[parts.length - 1]];
-                    } else {
-                        if (!result.params[sectionPath]) result.params[sectionPath] = {};
-                        currentSection = result.params[sectionPath];
-                    }
-                    currentArray = null;
-                    continue;
-                }
-                
-                // Array items like [[params.clinical_cases.cases]]
-                if (line.startsWith('[[') && line.endsWith(']]')) {
-                    const arrayPath = line.slice(2, -2);
-                    const parts = arrayPath.split('.');
-                    let current = result.params;
-                    for (let j = 0; j < parts.length - 1; j++) {
-                        if (!current[parts[j]]) current[parts[j]] = {};
-                        current = current[parts[j]];
-                    }
-                    if (!current[parts[parts.length - 1]]) current[parts[parts.length - 1]] = [];
-                    currentArray = current[parts[parts.length - 1]];
-                    currentSection = null;
-                    continue;
-                }
-                
-                // Key-value pairs
-                const equalIndex = line.indexOf('=');
-                if (equalIndex > 0) {
-                    const key = line.substring(0, equalIndex).trim();
-                    let value = line.substring(equalIndex + 1).trim();
-                    
-                    // Remove quotes
-                    if ((value.startsWith('"') && value.endsWith('"')) || 
-                        (value.startsWith("'") && value.endsWith("'"))) {
-                        value = value.slice(1, -1);
-                    }
-                    
-                    // Handle booleans
-                    if (value === 'true') value = true;
-                    if (value === 'false') value = false;
-                    
-                    if (currentArray !== null) {
-                        currentArray.push({ [key]: value });
-                    } else if (currentSection !== null) {
-                        currentSection[key] = value;
-                    }
-                }
-            }
-            
-            return result;
-        }
-
-        // Function to load and parse config.toml
-        async function loadConfig() {
-            try {
-                const response = await fetch('./config.toml');
-                const configText = await response.text();
-                
-                // Parse TOML
-                const config = parseToml(configText);
-                
-                // Convert to siteData structure
-                siteData.en = {
-                    hero: config.params.hero,
-                    skills: config.params.skills,
-                    education: config.params.education,
-                    clinical_cases: config.params.clinical_cases,
-                    contact: config.params.contact
-                };
-                
-                siteData.ar = {
-                    hero: config.params.ar?.hero || config.params.hero,
-                    skills: config.params.ar?.skills || config.params.skills,
-                    clinical_cases: config.params.ar?.clinical_cases || config.params.clinical_cases
-                };
-                
-                // Initialize after loading config
-                initTheme();
-                initLanguage();
-                renderContent();
-                initNavigation();
-                initFooter();
-                
-            } catch (error) {
-                console.error('Error loading config:', error);
-                // Fallback to hardcoded data
-                useFallbackData();
-            }
-        }
-
-        // Fallback data if config loading fails
-        function useFallbackData() {
-            siteData = {
-            en: {
-                hero: {
-                    name: "Dr. Michael Nabil",
-                    tagline: "Dental Specialist",
-                    graduation: "Graduated 2020 - Faculty of Dentistry",
-                    profile_image: "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572",
-                    current_position: {
-                        role: "Dental Specialist",
-                        clinic: "Grand center"
-                    }
-                },
-                skills: {
-                    clinical: [
-                        "Oral Diagnosis & Treatment Planning",
-                        "Preventive Dentistry",
-                        "Restorative Dentistry",
-                        "Endodontics (Root Canal)",
-                        "Prosthodontics",
-                        "Oral Surgery",
-                        "Pediatric Dentistry",
-                        "Periodontics",
-                        "Orthodontics Basics"
-                    ],
-                    digital: [
-                        "Digital Radiography",
-                        "CAD/CAM Dentistry",
-                        "Digital Smile Design",
-                        "Dental Software",
-                        "3D Printing"
-                    ],
-                    soft: [
-                        "Patient Communication",
-                        "Empathy & Compassion",
-                        "Team Collaboration",
-                        "Time Management",
-                        "Problem Solving",
-                        "Attention to Detail"
-                    ]
-                },
-                education: {
-                    university: "University Name - Faculty of Dentistry",
-                    graduation_year: "2020",
-                    master: { obtained: false, title: "Master in Oral Medicine", year: "2024" },
-                    phd: { obtained: false, title: "PhD in Dental Sciences", year: "2028" },
-                    timeline: [
-                        { year: "2020", event: "Graduated from Faculty of Dentistry" },
-                        { year: "2021", event: "Started General Practice" },
-                        { year: "2023", event: "Specialized Training Program" },
-                        { year: "2024", event: "Current Position" }
-                    ],
-                    certificates: []
-                },
-                clinical_cases: [
-                    {
-                        enabled: true,
-                        category: "Cosmetic Dentistry",
-                        cases: [
-                            {
-                                photo: "https://github.com/user-attachments/assets/dde16918-be0e-4c8d-a9b4-1a5afe4ea7e7",
-                                description: "Smile makeover with veneers",
-                                alt: "Before and after smile makeover showing porcelain veneers transformation"
-                            },
-                            {
-                                photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
-                                description: "Teeth whitening treatment",
-                                alt: "Professional teeth whitening results showing brighter smile"
-                            },
-                            {
-                                photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
-                                description: "Teeth whitening 1",
-                                alt: "Professional teeth whitening results showing brighter smile"
-                            }
-                        ]
-                    },
-                    {
-                        enabled: true,
-                        category: "Restorative Dentistry",
-                        cases: [
-                            {
-                                photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
-                                description: "Crown and bridge restoration",
-                                alt: "Dental crown and bridge restoration showing restored teeth"
-                            }
-                        ]
-                    }
-                ],
-                contact: {
-                    phone: "+20 123 456 7890",
-                    whatsapp: "+20 123 456 7890",
-                    email: "doctor@example.com",
-                    instagram: "https://instagram.com/",
-                    facebook: "https://facebook.com/",
-                    linkedin: "https://linkedin.com/in/",
-                    location: {
-                        enabled: true,
-                        address: "123 Main Street, City, Country",
-                        latitude: "31.2653",
-                        longitude: "32.3019"
-                    }
-                }
-            },
-            ar: {
-                hero: {
-                    name: "د. اسمك",
-                    tagline: "أخصائي طب الأسنان",
-                    graduation: "تخرج 2020 - كلية طب الأسنان"
-                },
-                skills: {
-                    clinical: [
-                        "التشخيص الفموي",
-                        "طب الأسنان الوقائي",
-                        "الترميم",
-                        "علاج الجذور",
-                        "التركيبات",
-                        "جراحة الفم",
-                        "أسنان الأطفال",
-                        "علاج اللثة",
-                        "التقويم"
-                    ],
-                    digital: [
-                        "التصوير الرقمي",
-                        "طب الأسنان الرقمي",
-                        "تصميم الابتسامة",
-                        "البرامج الطبية",
-                        "الطباعة ثلاثية الأبعاد"
-                    ],
-                    soft: [
-                        "التواصل",
-                        "التعاطف",
-                        "العمل الجماعي",
-                        "إدارة الوقت",
-                        "حل المشكلات",
-                        "الدقة"
-                    ]
-                },
-                clinical_cases: [
-                    {
-                        category: "طب الأسنان التجميلي",
-                        cases: [
-                            { description: "تجميل الابتسامة بالقشور" }
-                        ]
-                    }
-                ]
-            }
-        }
-        };
-
         // Language and Theme Management
         let currentLang = 'en';
         let currentTheme = localStorage.getItem('theme') || 'light';
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            loadConfig();
+            initTheme();
+            initLanguage();
+            initNavigation();
+            initFooter();
         });
 
         // Theme Toggle
