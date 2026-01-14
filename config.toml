@@ -21,8 +21,8 @@ defaultContentLanguage = "en"
     doctor_name_en = "Dr. Michael Nabil"
     doctor_name_ar = "د. ماكل نبيل"
     site_name = "Dr. Michael Nabil"
-    og_image = "https://github.com/user-attachments/assets/91a80bc5-b0ea-415a-9f29-fca6d3dfd0ba"
-    favicon_image = ""
+    og_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572"
+    favicon_image = "https://github.com/user-attachments/assets/91a80bc5-b0ea-415a-9f29-fca6d3dfd0ba"
     twitter_handle = ""
     keywords = [
       "dentist",
