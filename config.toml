@@ -9,7 +9,7 @@ defaultContentLanguage = "en"
     name = "Dr. Michael Nabil"
     tagline = "Dental Specialist"
     graduation = "Graduated 2020 - Faculty of Dentistry"
-    profile_image = "https://via.placeholder.com/200"
+    profile_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572)"
     profile_image_alt = "Profile photo of Dr. Your Name"
     
     [params.hero.current_position]
@@ -174,11 +174,11 @@ defaultContentLanguage = "en"
       description_ar = "علاج تبييض الأسنان"
 
     [[params.clinical_cases.cases]]
-      photo = "https://via.placeholder.com/600x600/10b981/ffffff?text=Case"
-      alt = "Teeth whitening treatment"
-      description = "Teeth whitening treatment"
+      photo = "https://github.com/user-attachments/assets/1544f0fe-8c82-4b13-8d60-54f39374f4b9"
+      alt = "ENDO treatment"
+      description = "ENDO treatment"
       alt_ar = "علاج تبييض الأسنان"
-      description_ar = " كيت تبييض الأسنان"
+      description_ar = " علاج حشو عصب الأسنان"
 
 
   [[params.clinical_cases]]
