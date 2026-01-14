@@ -123,12 +123,12 @@ defaultContentLanguage = "en"
     graduation_year = "2020"
     
     [params.education.master]
-      obtained = false
+      obtained = true
       title = "Master in Oral Medicine"
       year = "2024"
     
     [params.education.phd]
-      obtained = false
+      obtained = true
       title = "PhD in Dental Sciences"
       year = "2028"
     
@@ -173,6 +173,14 @@ defaultContentLanguage = "en"
       alt_ar = "علاج تبييض الأسنان"
       description_ar = "علاج تبييض الأسنان"
 
+    [[params.clinical_cases.cases]]
+      photo = "https://via.placeholder.com/600x600/10b981/ffffff?text=Case"
+      alt = "Teeth whitening treatment"
+      description = "Teeth whitening treatment"
+      alt_ar = "علاج تبييض الأسنان"
+      description_ar = " كيت تبييض الأسنان"
+
+
   [[params.clinical_cases]]
     enabled = true
     category = "Restorative Dentistry"
@@ -195,7 +203,7 @@ defaultContentLanguage = "en"
     linkedin = "https://linkedin.com/in/yourprofile"
     
     [params.contact.location]
-      enabled = false
+      enabled = true
       address = "123 Main Street, City, Country"
       latitude = "31.2653"
       longitude = "32.3019"
