@@ -40,9 +40,15 @@
     <meta name="twitter:description" content="{{ $desc }}">
     <meta name="twitter:image" content="{{ ($seo.og_image | default "") | absURL }}">
 
-    <link rel="icon" href="{{ .Site.Params.hero.og_image }}" sizes="any">
-    <link rel="shortcut icon" href="{{ .Site.Params.hero.og_image }}">
-    <link rel="apple-touch-icon" href="{{ .Site.Params.hero.og_image }}">
+    {{ $favicon := $seo.favicon_image | default "" }}
+    {{ if eq $favicon "" }}
+      {{ $favicon = .Site.Params.hero.profile_image | default "" }}
+    {{ end }}
+    {{ if ne $favicon "" }}
+    <link rel="icon" href="{{ $favicon }}" sizes="any">
+    <link rel="shortcut icon" href="{{ $favicon }}">
+    <link rel="apple-touch-icon" href="{{ $favicon }}">
+    {{ end }}
 
     {{ with .Site.Params.integrations.google_search_console_verification }}
     {{ if ne . "" }}
@@ -317,8 +323,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            object-fit: contain;
-            background: var(--bg-secondary);
+            object-fit: cover;
             border: 5px solid var(--primary-color);
             box-shadow: var(--shadow-lg);
         }
