@@ -3,63 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Params.hero.name }} - Portfolio</title>
-    <meta name="description" content="Professional dental portfolio showcasing clinical cases, skills, and expertise in modern dentistry">
-    
-    <!-- SEO Meta Tags -->
-<meta name="keywords" content="dentist, dental portfolio, clinical cases, cosmetic dentistry, restorative dentistry, dental specialist, {{ .Site.Params.SEO.keywords }}">
-    <meta name="author" content="{{ .Site.Params.SEO.keywords }}">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="en">
-    <meta name="revisit-after" content="7 days">
-    <meta name="geo.region" content="EG">
-    <meta name="geo.placename" content="Egypt">
-    <meta name="ICBM" content="31.2653, 32.3019">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="{{ .Site.Params.hero.name }} - Dental Portfolio">
-    <meta property="og:description" content="Professional dental portfolio showcasing clinical cases and expertise">
-    <meta property="og:image" content="{{ .Site.Params.hero.profile_image }}">
-    <meta property="og:url" content="{{ .Site.BaseURL }}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="{{ .Site.Params.hero.name }} Portfolio">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ .Site.Params.hero.name }} - Dental Portfolio">
-    <meta name="twitter:description" content="Professional dental portfolio showcasing clinical cases and expertise">
-    <meta name="twitter:image" content="{{ .Site.Params.hero.profile_image }}">
-    <meta name="twitter:creator" content="@{{ .Site.Params.SEO.twitter_username }}">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ .Site.BaseURL }}">
-    
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "{{ .Site.Params.hero.name }}",
-      "jobTitle": "{{ .Site.Params.hero.current_position.role }}",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "{{ .Site.Params.hero.current_position.clinic }}"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "{{ .Site.Params.education.university }}"
-      },
-      "knowsAbout": ["Dentistry", "Cosmetic Dentistry", "Restorative Dentistry", "Endodontics"],
-      "image": "{{ .Site.Params.hero.profile_image }}",
-      "url": "{{ .Site.BaseURL }}",
-      "sameAs": [
-        "{{ .Site.Params.contact.instagram }}",
-        "{{ .Site.Params.contact.facebook }}",
-        "{{ .Site.Params.contact.linkedin }}"
-      ]
-    }
-    </script>
+    <title>{{ .Site.Data.en.hero.name }} - Portfolio</title>
+    <meta name="description" content="Professional dental portfolio">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -626,6 +571,35 @@
             box-shadow: var(--shadow-lg);
         }
 
+        .case-labels {
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+            background: var(--bg-secondary);
+        }
+
+        .case-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .before-label {
+            background: #ef4444;
+            color: white;
+        }
+
+        .after-label {
+            background: #10b981;
+            color: white;
+        }
+
+        .case-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
         .case-image-wrapper {
             position: relative;
             padding-top: 100%;
@@ -638,17 +612,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            background: var(--bg-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .case-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            object-fit: cover;
         }
 
         .case-description {
@@ -969,17 +933,6 @@
             .bottom-nav {
                 justify-content: space-between;
             }
-
-            /* Clinical Cases Mobile Styles */
-            .cases-grid {
-                grid-template-columns: 1fr;
-                justify-items: center;
-            }
-
-            .case-card {
-                width: 100%;
-                max-width: 350px;
-            }
         }
 
         /* Loading Animation */
@@ -1048,23 +1001,23 @@
             <div class="hero-content">
                 <div class="profile-image-container">
                     <img 
-                        src="{{ .Site.Params.hero.profile_image }}" 
-                        alt="{{ .Site.Params.hero.name }} - Professional Dental Specialist Portrait"
+                        src="https://via.placeholder.com/200" 
+                        alt="Profile"
                         class="profile-image"
                         id="profileImage"
                     >
                 </div>
                 
-                <h1 class="hero-name" id="heroName">{{ .Site.Params.hero.name }}</h1>
-                <p class="hero-tagline" id="heroTagline">{{ .Site.Params.hero.tagline }}</p>
-                <p class="hero-graduation" id="heroGraduation">{{ .Site.Params.hero.graduation }}</p>
+                <h1 class="hero-name" id="heroName">Dr. Your Name</h1>
+                <p class="hero-tagline" id="heroTagline">Dental Specialist</p>
+                <p class="hero-graduation" id="heroGraduation">Graduated 2020 - Faculty of Dentistry</p>
                 
                 <div class="hero-position" id="heroPosition">
                     <p>
                         <span>Now working as</span>
-                        <strong>{{ .Site.Params.hero.current_position.role }}</strong>
+                        <strong>Dental Specialist</strong>
                         <span>at</span>
-                        <strong>{{ .Site.Params.hero.current_position.clinic }}</strong>
+                        <strong>Your Clinic</strong>
                     </p>
                 </div>
             </div>
@@ -1085,14 +1038,7 @@
                         <i class="fas fa-tooth"></i>
                         <span data-en="Clinical Skills" data-ar="المهارات السريرية">Clinical Skills</span>
                     </h3>
-                    <div class="skill-list">
-                        {{ range .Site.Params.skills.clinical }}
-                        <div class="skill-item">
-                            <span class="skill-number">{{ add 1 . }}</span>
-                            <span class="skill-text">{{ . }}</span>
-                        </div>
-                        {{ end }}
-                    </div>
+                    <div class="skill-list" id="clinicalSkills"></div>
                 </div>
                 
                 <div class="skill-category">
@@ -1100,14 +1046,7 @@
                         <i class="fas fa-laptop"></i>
                         <span data-en="Digital Skills" data-ar="المهارات الرقمية">Digital Skills</span>
                     </h3>
-                    <div class="skill-list">
-                        {{ range .Site.Params.skills.digital }}
-                        <div class="skill-item">
-                            <span class="skill-number">{{ add 1 . }}</span>
-                            <span class="skill-text">{{ . }}</span>
-                        </div>
-                        {{ end }}
-                    </div>
+                    <div class="skill-list" id="digitalSkills"></div>
                 </div>
                 
                 <div class="skill-category">
@@ -1115,14 +1054,7 @@
                         <i class="fas fa-users"></i>
                         <span data-en="Soft Skills" data-ar="المهارات الشخصية">Soft Skills</span>
                     </h3>
-                    <div class="skill-list">
-                        {{ range .Site.Params.skills.soft }}
-                        <div class="skill-item">
-                            <span class="skill-number">{{ add 1 . }}</span>
-                            <span class="skill-text">{{ . }}</span>
-                        </div>
-                        {{ end }}
-                    </div>
+                    <div class="skill-list" id="softSkills"></div>
                 </div>
             </div>
         </section>
@@ -1168,28 +1100,7 @@
                 <p class="section-subtitle" data-en="Before & After Gallery" data-ar="معرض قبل وبعد">Before & After Gallery</p>
             </div>
             
-            <div class="cases-container">
-                {{ range .Site.Params.clinical_cases }}
-                {{ if .enabled }}
-                <div class="case-category">
-                    <h3 class="case-category-title">{{ .category }}</h3>
-                    <div class="cases-grid">
-                        {{ range .cases }}
-                        <div class="case-card">
-                            <div class="case-image-wrapper">
-                                <div class="case-image">
-                                    <img src="{{ .photo }}" alt="{{ .alt | default .description }}" loading="lazy">
-                                </div>
-                            </div>
-                            <div class="case-description">
-                                <p>{{ .description }}</p>
-                            </div>
-                        </div>
-                        {{ end }}
-                    </div>
-                </div>
-                {{ end }}
-            </div>
+            <div class="cases-container" id="casesContainer"></div>
         </section>
 
         <!-- Blog Section -->
@@ -1262,18 +1173,147 @@
             
             <div class="footer-info">
                 <p>&copy; <span id="currentYear"></span> <span id="footerName">Dr. Portfolio</span>. <span data-en="All rights reserved" data-ar="جميع الحقوق محفوظة">All rights reserved</span>.</p>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Configuration Data (loaded from config.toml in actual Hugo site)
+        const siteData = {
+            en: {
+                hero: {
+                    name: "Dr. Your Name",
+                    tagline: "Dental Specialist",
+                    graduation: "Graduated 2020 - Faculty of Dentistry",
+                    profile_image: "https://via.placeholder.com/200",
+                    current_position: {
+                        role: "Dental Specialist",
+                        clinic: "Your Clinic Name"
+                    }
+                },
+                skills: {
+                    clinical: [
+                        "Oral Diagnosis & Treatment Planning",
+                        "Preventive Dentistry",
+                        "Restorative Dentistry",
+                        "Endodontics (Root Canal)",
+                        "Prosthodontics",
+                        "Oral Surgery",
+                        "Pediatric Dentistry",
+                        "Periodontics",
+                        "Orthodontics Basics"
+                    ],
+                    digital: [
+                        "Digital Radiography",
+                        "CAD/CAM Dentistry",
+                        "Digital Smile Design",
+                        "Dental Software",
+                        "3D Printing"
+                    ],
+                    soft: [
+                        "Patient Communication",
+                        "Empathy & Compassion",
+                        "Team Collaboration",
+                        "Time Management",
+                        "Problem Solving",
+                        "Attention to Detail"
+                    ]
+                },
+                education: {
+                    university: "University Name - Faculty of Dentistry",
+                    graduation_year: "2020",
+                    master: { obtained: false, title: "Master in Oral Medicine", year: "2024" },
+                    phd: { obtained: false, title: "PhD in Dental Sciences", year: "2028" },
+                    timeline: [
+                        { year: "2020", event: "Graduated from Faculty of Dentistry" },
+                        { year: "2021", event: "Started General Practice" },
+                        { year: "2023", event: "Specialized Training Program" },
+                        { year: "2024", event: "Current Position" }
+                    ],
+                    certificates: []
+                },
+                clinical_cases: [
+                    {
+                        enabled: true,
+                        category: "Cosmetic Dentistry",
+                        cases: [
+                            {
+                                before: "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before",
+                                after: "https://via.placeholder.com/400x400/10b981/ffffff?text=After",
+                                description: "Smile makeover with veneers"
+                            }
+                        ]
+                    }
+                ],
+                contact: {
+                    phone: "+20 123 456 7890",
+                    whatsapp: "+20 123 456 7890",
+                    email: "doctor@example.com",
+                    instagram: "https://instagram.com/",
+                    facebook: "https://facebook.com/",
+                    linkedin: "https://linkedin.com/in/",
+                    location: {
+                        enabled: false,
+                        address: "123 Main Street, City, Country",
+                        latitude: "31.2653",
+                        longitude: "32.3019"
+                    }
+                }
+            },
+            ar: {
+                hero: {
+                    name: "د. اسمك",
+                    tagline: "أخصائي طب الأسنان",
+                    graduation: "تخرج 2020 - كلية طب الأسنان"
+                },
+                skills: {
+                    clinical: [
+                        "التشخيص الفموي",
+                        "طب الأسنان الوقائي",
+                        "الترميم",
+                        "علاج الجذور",
+                        "التركيبات",
+                        "جراحة الفم",
+                        "أسنان الأطفال",
+                        "علاج اللثة",
+                        "التقويم"
+                    ],
+                    digital: [
+                        "التصوير الرقمي",
+                        "طب الأسنان الرقمي",
+                        "تصميم الابتسامة",
+                        "البرامج الطبية",
+                        "الطباعة ثلاثية الأبعاد"
+                    ],
+                    soft: [
+                        "التواصل",
+                        "التعاطف",
+                        "العمل الجماعي",
+                        "إدارة الوقت",
+                        "حل المشكلات",
+                        "الدقة"
+                    ]
+                },
+                clinical_cases: [
+                    {
+                        category: "طب الأسنان التجميلي",
+                        cases: [
+                            { description: "تجميل الابتسامة بالقشور" }
+                        ]
+                    }
+                ]
+            }
+        };
+
         // Language and Theme Management
         let currentLang = 'en';
         let currentTheme = localStorage.getItem('theme') || 'light';
 
-        // Initialize on page load
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             initTheme();
             initLanguage();
+            renderContent();
             initNavigation();
             initFooter();
         });
@@ -1324,7 +1364,6 @@
             document.getElementById('heroName').textContent = data.hero.name;
             document.getElementById('heroTagline').textContent = data.hero.tagline;
             document.getElementById('heroGraduation').textContent = data.hero.graduation;
-            document.getElementById('profileImage').src = data.hero.profile_image;
             
             // Skills
             renderSkills('clinicalSkills', data.skills.clinical);
@@ -1435,9 +1474,16 @@
                                 
                                 return `
                                     <div class="case-card">
-                                        <div class="case-image-wrapper">
-                                            <div class="case-image">
-                                                <img src="${caseItem.photo}" alt="${caseItem.alt || caseItem.description}" loading="lazy">
+                                        <div class="case-labels">
+                                            <span class="case-label before-label">${currentLang === 'en' ? 'Before' : 'قبل'}</span>
+                                            <span class="case-label after-label">${currentLang === 'en' ? 'After' : 'بعد'}</span>
+                                        </div>
+                                        <div class="case-images">
+                                            <div class="case-image-wrapper before">
+                                                <img src="${caseItem.before}" alt="Before" class="case-image" loading="lazy">
+                                            </div>
+                                            <div class="case-image-wrapper after">
+                                                <img src="${caseItem.after}" alt="After" class="case-image" loading="lazy">
                                             </div>
                                         </div>
                                         <div class="case-description">
@@ -1599,7 +1645,7 @@
         // Footer
         function initFooter() {
             document.getElementById('currentYear').textContent = new Date().getFullYear();
-            document.getElementById('footerName').textContent = '{{ .Site.Params.hero.name }}';
+            document.getElementById('footerName').textContent = siteData[currentLang].hero.name;
         }
     </script>
 </body>
