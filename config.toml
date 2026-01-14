@@ -3,6 +3,15 @@ languageCode = "en-us"
 title = "Dr. Portfolio"
 defaultContentLanguage = "en"
 
+# SEO Configuration
+[params.SEO]
+  keywords = "dental implants, veneers, teeth whitening, root canal, smile makeover, cosmetic dentistry Egypt, best dentist Cairo, dental clinic Egypt, orthodontics, pediatric dentistry, oral surgery, gum treatment, dental crowns, bridges, dentures, digital dentistry, 3D printing, CAD/CAM"
+  twitter_username = "drmichaelnabil"
+  google_analytics = "G-XXXXXXXXXX"
+  google_site_verification = "your-verification-code"
+  bing_site_verification = "your-verification-code"
+  yandex_verification = "your-verification-code"
+
 [params]
   # Hero Section
   [params.hero]
@@ -82,7 +91,8 @@ defaultContentLanguage = "en"
     #   title = "Advanced Endodontics Course"
     #   image = "cert1.jpg"
 
-  # Clinical Cases Section
+  # Clinical Cases Section - Simplified Addition Method
+  # Just add: photo, description, alt text
   [[params.clinical_cases]]
     enabled = true
     category = "Cosmetic Dentistry"
@@ -90,15 +100,13 @@ defaultContentLanguage = "en"
     [[params.clinical_cases.cases]]
       photo = "https://github.com/user-attachments/assets/dde16918-be0e-4c8d-a9b4-1a5afe4ea7e7"
       description = "Smile makeover with veneers"
+      alt = "Before and after smile makeover showing porcelain veneers transformation"
     
     [[params.clinical_cases.cases]]
       photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
       description = "Teeth whitening treatment"
+      alt = "Professional teeth whitening results showing brighter smile"
 
-    [[params.clinical_cases.cases]]
-      photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
-      description = "Teeth whitening by special kit"
-      
   [[params.clinical_cases]]
     enabled = true
     category = "Restorative Dentistry"
@@ -106,6 +114,7 @@ defaultContentLanguage = "en"
     [[params.clinical_cases.cases]]
       photo = "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo"
       description = "Crown and bridge restoration"
+      alt = "Dental crown and bridge restoration showing restored teeth"
 
   # Contact Section
   [params.contact]
@@ -192,10 +201,6 @@ defaultContentLanguage = "en"
     
     [[params.ar.clinical_cases.cases]]
       description = "علاج تبييض الأسنان"
-
-
-    [[params.ar.clinical_cases.cases]]
-      description = "علاج تبييض الأسنان كيت "      
   
   [[params.ar.clinical_cases]]
     category = "طب الأسنان الترميمي"
