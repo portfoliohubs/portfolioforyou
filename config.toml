@@ -6,14 +6,14 @@ defaultContentLanguage = "en"
 [params]
   # Hero Section
   [params.hero]
-    name = "Dr. Your Name"
+    name = "Dr. Michael Nabil"
     tagline = "Dental Specialist"
     graduation = "Graduated 2020 - Faculty of Dentistry"
     profile_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572"
     
     [params.hero.current_position]
       role = "Dental Specialist"
-      clinic = "Your Clinic Name"
+      clinic = "Grand center"
 
   # Skills Section
   [params.skills]
@@ -52,12 +52,12 @@ defaultContentLanguage = "en"
     graduation_year = "2020"
     
     [params.education.master]
-      obtained = false
+      obtained = true
       title = "Master in Oral Medicine"
       year = "2024"
     
     [params.education.phd]
-      obtained = false
+      obtained = true
       title = "PhD in Dental Sciences"
       year = "2028"
     
