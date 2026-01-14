@@ -1,12 +1,12 @@
 baseURL = "https://yourusername.github.io/yourrepo/"
 languageCode = "en-us"
-title = "Dr. Portfolio"
+title = "Dr. Michael Nabil"
 defaultContentLanguage = "en"
 
 [params]
   # Hero Section
   [params.hero]
-    name = "Dr. Your Name"
+    name = "Dr. Michael Nabil"
     tagline = "Dental Specialist"
     graduation = "Graduated 2020 - Faculty of Dentistry"
     profile_image = "https://via.placeholder.com/200"
