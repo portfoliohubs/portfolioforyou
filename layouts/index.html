@@ -3,8 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Data.en.hero.name }} - Portfolio</title>
-    <meta name="description" content="Professional dental portfolio">
+    {{ $seo := .Site.Params.seo }}
+    {{ $siteName := $seo.site_name | default .Site.Title }}
+    {{ $doctorNameEn := $seo.doctor_name_en | default .Site.Params.hero.name }}
+    {{ $doctorNameAr := $seo.doctor_name_ar | default "" }}
+    {{ $desc := $seo.description | default "" }}
+    {{ $kw := $seo.keywords | default (slice) }}
+    {{ $kwAr := $seo.keywords_ar | default (slice) }}
+    {{ $allKw := $kw }}
+    {{ range $kwAr }}
+      {{ $allKw = $allKw | append . }}
+    {{ end }}
+    {{ $keywords := delimit $allKw ", " }}
+
+    <title>{{ if $doctorNameAr }}{{ $doctorNameEn }} | {{ $doctorNameAr }} - {{ $siteName }}{{ else }}{{ $doctorNameEn }} - {{ $siteName }}{{ end }}</title>
+    <meta name="description" content="{{ $desc }}">
+    <meta name="keywords" content="{{ $keywords }}">
+    <meta name="author" content="{{ $doctorNameEn }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="theme-color" content="#2563eb">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ if $doctorNameAr }}{{ $doctorNameEn }} | {{ $doctorNameAr }} - {{ $siteName }}{{ else }}{{ $doctorNameEn }} - {{ $siteName }}{{ end }}">
+    <meta property="og:description" content="{{ $desc }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ $siteName }}">
+    <meta property="og:image" content="{{ ($seo.og_image | default "") | absURL }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    {{ if $seo.twitter_handle }}
+    <meta name="twitter:site" content="{{ $seo.twitter_handle }}">
+    {{ end }}
+    <meta name="twitter:title" content="{{ if $doctorNameAr }}{{ $doctorNameEn }} | {{ $doctorNameAr }} - {{ $siteName }}{{ else }}{{ $doctorNameEn }} - {{ $siteName }}{{ end }}">
+    <meta name="twitter:description" content="{{ $desc }}">
+    <meta name="twitter:image" content="{{ ($seo.og_image | default "") | absURL }}">
+
+    {{ $schema := dict "@context" "https://schema.org" "@type" (slice "Dentist" "LocalBusiness") "name" $doctorNameEn "url" .Permalink "image" (($seo.og_image | default "") | absURL) "telephone" (.Site.Params.contact.phone | default "") "email" (.Site.Params.contact.email | default "") "sameAs" (slice (.Site.Params.contact.instagram | default "") (.Site.Params.contact.facebook | default "") (.Site.Params.contact.linkedin | default "")) }}
+    <script type="application/ld+json">{{ $schema | jsonify }}</script>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -556,6 +593,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
+            justify-items: center;
         }
 
         .case-card {
@@ -564,6 +602,8 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            width: 100%;
+            max-width: 420px;
         }
 
         .case-card:hover {
@@ -571,38 +611,9 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .case-labels {
-            display: flex;
-            justify-content: space-around;
-            padding: 1rem;
-            background: var(--bg-secondary);
-        }
-
-        .case-label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-        }
-
-        .before-label {
-            background: #ef4444;
-            color: white;
-        }
-
-        .after-label {
-            background: #10b981;
-            color: white;
-        }
-
-        .case-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
         .case-image-wrapper {
             position: relative;
-            padding-top: 100%;
+            padding-top: 70%;
             overflow: hidden;
         }
 
@@ -933,6 +944,10 @@
             .bottom-nav {
                 justify-content: space-between;
             }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Loading Animation */
@@ -961,7 +976,7 @@
             </button>
             
             <div class="header-logo">
-                <h1 class="header-name">Dr. Portfolio</h1>
+                <h1 class="header-name" id="headerName">{{ .Site.Params.hero.name }}</h1>
             </div>
             
             <div class="header-controls">
@@ -1001,23 +1016,23 @@
             <div class="hero-content">
                 <div class="profile-image-container">
                     <img 
-                        src="https://via.placeholder.com/200" 
-                        alt="Profile"
+                        src="{{ .Site.Params.hero.profile_image }}" 
+                        alt="{{ .Site.Params.hero.profile_image_alt }}"
                         class="profile-image"
                         id="profileImage"
                     >
                 </div>
                 
-                <h1 class="hero-name" id="heroName">Dr. Your Name</h1>
-                <p class="hero-tagline" id="heroTagline">Dental Specialist</p>
-                <p class="hero-graduation" id="heroGraduation">Graduated 2020 - Faculty of Dentistry</p>
+                <h1 class="hero-name" id="heroName">{{ .Site.Params.hero.name }}</h1>
+                <p class="hero-tagline" id="heroTagline">{{ .Site.Params.hero.tagline }}</p>
+                <p class="hero-graduation" id="heroGraduation">{{ .Site.Params.hero.graduation }}</p>
                 
                 <div class="hero-position" id="heroPosition">
                     <p>
                         <span>Now working as</span>
-                        <strong>Dental Specialist</strong>
+                        <strong id="heroRole">{{ .Site.Params.hero.current_position.role }}</strong>
                         <span>at</span>
-                        <strong>Your Clinic</strong>
+                        <strong id="heroClinic">{{ .Site.Params.hero.current_position.clinic }}</strong>
                     </p>
                 </div>
             </div>
@@ -1172,138 +1187,16 @@
             </nav>
             
             <div class="footer-info">
-                <p>&copy; <span id="currentYear"></span> <span id="footerName">Dr. Portfolio</span>. <span data-en="All rights reserved" data-ar="جميع الحقوق محفوظة">All rights reserved</span>.</p>
+                <p>&copy; <span id="currentYear"></span> <span id="footerName">{{ .Site.Params.hero.name }}</span>. <span data-en="All rights reserved" data-ar="جميع الحقوق محفوظة">All rights reserved</span>.</p>
             </div>
         </div>
     </footer>
 
+    <script type="application/json" id="siteDataJson">{{ dict "en" (dict "hero" .Site.Params.hero "skills" .Site.Params.skills "education" .Site.Params.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "seo" .Site.Params.seo) "ar" (dict "hero" .Site.Params.ar.hero "skills" .Site.Params.ar.skills "education" .Site.Params.ar.education "clinical_cases" .Site.Params.clinical_cases "contact" .Site.Params.contact "contact_location" .Site.Params.ar.contact.location "seo" .Site.Params.seo) | jsonify }}</script>
+
     <script>
         // Configuration Data (loaded from config.toml in actual Hugo site)
-        const siteData = {
-            en: {
-                hero: {
-                    name: "Dr. Your Name",
-                    tagline: "Dental Specialist",
-                    graduation: "Graduated 2020 - Faculty of Dentistry",
-                    profile_image: "https://via.placeholder.com/200",
-                    current_position: {
-                        role: "Dental Specialist",
-                        clinic: "Your Clinic Name"
-                    }
-                },
-                skills: {
-                    clinical: [
-                        "Oral Diagnosis & Treatment Planning",
-                        "Preventive Dentistry",
-                        "Restorative Dentistry",
-                        "Endodontics (Root Canal)",
-                        "Prosthodontics",
-                        "Oral Surgery",
-                        "Pediatric Dentistry",
-                        "Periodontics",
-                        "Orthodontics Basics"
-                    ],
-                    digital: [
-                        "Digital Radiography",
-                        "CAD/CAM Dentistry",
-                        "Digital Smile Design",
-                        "Dental Software",
-                        "3D Printing"
-                    ],
-                    soft: [
-                        "Patient Communication",
-                        "Empathy & Compassion",
-                        "Team Collaboration",
-                        "Time Management",
-                        "Problem Solving",
-                        "Attention to Detail"
-                    ]
-                },
-                education: {
-                    university: "University Name - Faculty of Dentistry",
-                    graduation_year: "2020",
-                    master: { obtained: false, title: "Master in Oral Medicine", year: "2024" },
-                    phd: { obtained: false, title: "PhD in Dental Sciences", year: "2028" },
-                    timeline: [
-                        { year: "2020", event: "Graduated from Faculty of Dentistry" },
-                        { year: "2021", event: "Started General Practice" },
-                        { year: "2023", event: "Specialized Training Program" },
-                        { year: "2024", event: "Current Position" }
-                    ],
-                    certificates: []
-                },
-                clinical_cases: [
-                    {
-                        enabled: true,
-                        category: "Cosmetic Dentistry",
-                        cases: [
-                            {
-                                before: "https://via.placeholder.com/400x400/ef4444/ffffff?text=Before",
-                                after: "https://via.placeholder.com/400x400/10b981/ffffff?text=After",
-                                description: "Smile makeover with veneers"
-                            }
-                        ]
-                    }
-                ],
-                contact: {
-                    phone: "+20 123 456 7890",
-                    whatsapp: "+20 123 456 7890",
-                    email: "doctor@example.com",
-                    instagram: "https://instagram.com/",
-                    facebook: "https://facebook.com/",
-                    linkedin: "https://linkedin.com/in/",
-                    location: {
-                        enabled: false,
-                        address: "123 Main Street, City, Country",
-                        latitude: "31.2653",
-                        longitude: "32.3019"
-                    }
-                }
-            },
-            ar: {
-                hero: {
-                    name: "د. اسمك",
-                    tagline: "أخصائي طب الأسنان",
-                    graduation: "تخرج 2020 - كلية طب الأسنان"
-                },
-                skills: {
-                    clinical: [
-                        "التشخيص الفموي",
-                        "طب الأسنان الوقائي",
-                        "الترميم",
-                        "علاج الجذور",
-                        "التركيبات",
-                        "جراحة الفم",
-                        "أسنان الأطفال",
-                        "علاج اللثة",
-                        "التقويم"
-                    ],
-                    digital: [
-                        "التصوير الرقمي",
-                        "طب الأسنان الرقمي",
-                        "تصميم الابتسامة",
-                        "البرامج الطبية",
-                        "الطباعة ثلاثية الأبعاد"
-                    ],
-                    soft: [
-                        "التواصل",
-                        "التعاطف",
-                        "العمل الجماعي",
-                        "إدارة الوقت",
-                        "حل المشكلات",
-                        "الدقة"
-                    ]
-                },
-                clinical_cases: [
-                    {
-                        category: "طب الأسنان التجميلي",
-                        cases: [
-                            { description: "تجميل الابتسامة بالقشور" }
-                        ]
-                    }
-                ]
-            }
-        };
+        const siteData = JSON.parse(document.getElementById('siteDataJson').textContent);
 
         // Language and Theme Management
         let currentLang = 'en';
@@ -1334,6 +1227,7 @@
         // Language Toggle
         function initLanguage() {
             document.body.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', currentLang);
             updateLanguageText();
         }
 
@@ -1364,6 +1258,17 @@
             document.getElementById('heroName').textContent = data.hero.name;
             document.getElementById('heroTagline').textContent = data.hero.tagline;
             document.getElementById('heroGraduation').textContent = data.hero.graduation;
+            document.getElementById('headerName').textContent = data.hero.name;
+            document.getElementById('footerName').textContent = data.hero.name;
+
+            const profileImage = document.getElementById('profileImage');
+            profileImage.src = siteData.en.hero.profile_image;
+            profileImage.alt = currentLang === 'ar' ? (siteData.ar.hero.profile_image_alt || siteData.en.hero.profile_image_alt) : siteData.en.hero.profile_image_alt;
+
+            const role = data.hero.current_position?.role || siteData.en.hero.current_position.role;
+            const clinic = data.hero.current_position?.clinic || siteData.en.hero.current_position.clinic;
+            document.getElementById('heroRole').textContent = role;
+            document.getElementById('heroClinic').textContent = clinic;
             
             // Skills
             renderSkills('clinicalSkills', data.skills.clinical);
@@ -1395,12 +1300,11 @@
 
         function renderDegrees() {
             const data = siteData.en.education;
-            const arData = siteData.ar;
             const container = document.getElementById('degreesContainer');
             let html = '';
             
             if (data.master.obtained) {
-                const title = currentLang === 'en' ? data.master.title : 'ماجستير في طب الفم';
+                const title = currentLang === 'en' ? data.master.title : (siteData.ar.education.master?.title || data.master.title);
                 html += `
                     <div class="degree-item">
                         <i class="fas fa-award degree-icon"></i>
@@ -1414,7 +1318,7 @@
             }
             
             if (data.phd.obtained) {
-                const title = currentLang === 'en' ? data.phd.title : 'دكتوراه في علوم الأسنان';
+                const title = currentLang === 'en' ? data.phd.title : (siteData.ar.education.phd?.title || data.phd.title);
                 html += `
                     <div class="degree-item">
                         <i class="fas fa-award degree-icon"></i>
@@ -1432,7 +1336,6 @@
         }
 
         function renderTimeline() {
-            const data = siteData[currentLang].education || siteData.en.education;
             const timeline = siteData.en.education.timeline;
             const container = document.getElementById('timeline');
             
@@ -1455,36 +1358,23 @@
 
         function renderCases() {
             const data = siteData.en.clinical_cases;
-            const arData = siteData.ar.clinical_cases;
             const container = document.getElementById('casesContainer');
             
             container.innerHTML = data.filter(cat => cat.enabled).map((category, catIndex) => {
-                const categoryName = currentLang === 'ar' && arData[catIndex] 
-                    ? arData[catIndex].category 
-                    : category.category;
+                const categoryName = currentLang === 'ar' ? (category.category_ar || category.category) : category.category;
                 
                 return `
                     <div class="case-category">
                         <h3 class="case-category-title">${categoryName}</h3>
                         <div class="cases-grid">
                             ${category.cases.map((caseItem, caseIndex) => {
-                                const description = currentLang === 'ar' && arData[catIndex]?.cases[caseIndex]
-                                    ? arData[catIndex].cases[caseIndex].description
-                                    : caseItem.description;
+                                const description = currentLang === 'ar' ? (caseItem.description_ar || caseItem.description) : caseItem.description;
+                                const altText = currentLang === 'ar' ? (caseItem.alt_ar || caseItem.alt || description) : (caseItem.alt || description);
                                 
                                 return `
                                     <div class="case-card">
-                                        <div class="case-labels">
-                                            <span class="case-label before-label">${currentLang === 'en' ? 'Before' : 'قبل'}</span>
-                                            <span class="case-label after-label">${currentLang === 'en' ? 'After' : 'بعد'}</span>
-                                        </div>
-                                        <div class="case-images">
-                                            <div class="case-image-wrapper before">
-                                                <img src="${caseItem.before}" alt="Before" class="case-image" loading="lazy">
-                                            </div>
-                                            <div class="case-image-wrapper after">
-                                                <img src="${caseItem.after}" alt="After" class="case-image" loading="lazy">
-                                            </div>
+                                        <div class="case-image-wrapper single">
+                                            <img src="${caseItem.photo}" alt="${altText}" class="case-image" loading="lazy">
                                         </div>
                                         <div class="case-description">
                                             <p>${description}</p>
@@ -1569,8 +1459,8 @@
             // Location
             if (data.location.enabled) {
                 const locationContainer = document.getElementById('locationContainer');
-                const address = currentLang === 'ar' && siteData.ar.contact?.location?.address 
-                    ? siteData.ar.contact.location.address 
+                const address = currentLang === 'ar' && siteData.ar.contact_location?.address 
+                    ? siteData.ar.contact_location.address 
                     : data.location.address;
                 
                 locationContainer.innerHTML = `
