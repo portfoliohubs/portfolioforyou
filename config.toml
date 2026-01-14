@@ -23,7 +23,7 @@ defaultContentLanguage = "en"
     site_name = "Dr. Michael Nabil"
     og_image = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572"
     favicon_image = "https://github.com/user-attachments/assets/91a80bc5-b0ea-415a-9f29-fca6d3dfd0ba"
-    twitter_handle = ""
+    twitter_handle = "https://github.com/user-attachments/assets/97ba84f2-8190-4ea6-b396-c6beb0bb3572"
     keywords = [
       "dentist",
       "dental clinic",
