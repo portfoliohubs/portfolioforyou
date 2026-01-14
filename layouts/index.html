@@ -4,7 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Data.en.hero.name }} - Portfolio</title>
-    <meta name="description" content="Professional dental portfolio">
+    <meta name="description" content="Professional dental portfolio showcasing clinical cases, skills, and expertise in modern dentistry">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="dentist, dental portfolio, clinical cases, cosmetic dentistry, restorative dentistry, dental specialist, {{ .Site.Params.SEO.keywords }}">
+    <meta name="author" content="{{ .Site.Data.en.hero.name }}">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+    <meta name="revisit-after" content="7 days">
+    <meta name="geo.region" content="EG">
+    <meta name="geo.placename" content="Egypt">
+    <meta name="ICBM" content="31.2653, 32.3019">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ .Site.Data.en.hero.name }} - Dental Portfolio">
+    <meta property="og:description" content="Professional dental portfolio showcasing clinical cases and expertise">
+    <meta property="og:image" content="{{ .Site.Data.en.hero.profile_image }}">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ .Site.Data.en.hero.name }} Portfolio">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ .Site.Data.en.hero.name }} - Dental Portfolio">
+    <meta name="twitter:description" content="Professional dental portfolio showcasing clinical cases and expertise">
+    <meta name="twitter:image" content="{{ .Site.Data.en.hero.profile_image }}">
+    <meta name="twitter:creator" content="@{{ .Site.Params.SEO.twitter_username }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ .Site.BaseURL }}">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{ .Site.Data.en.hero.name }}",
+      "jobTitle": "{{ .Site.Data.en.hero.current_position.role }}",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "{{ .Site.Data.en.hero.current_position.clinic }}"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "{{ .Site.Data.en.education.university }}"
+      },
+      "knowsAbout": ["Dentistry", "Cosmetic Dentistry", "Restorative Dentistry", "Endodontics"],
+      "image": "{{ .Site.Data.en.hero.profile_image }}",
+      "url": "{{ .Site.BaseURL }}",
+      "sameAs": [
+        "{{ .Site.Data.en.contact.instagram }}",
+        "{{ .Site.Data.en.contact.facebook }}",
+        "{{ .Site.Data.en.contact.linkedin }}"
+      ]
+    }
+    </script>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -993,8 +1048,8 @@
             <div class="hero-content">
                 <div class="profile-image-container">
                     <img 
-                        src="https://via.placeholder.com/200" 
-                        alt="Profile"
+                        src="{{ .Site.Data.en.hero.profile_image }}" 
+                        alt="{{ .Site.Data.en.hero.name }} - Professional Dental Specialist Portrait"
                         class="profile-image"
                         id="profileImage"
                     >
@@ -1231,11 +1286,13 @@
                         cases: [
                             {
                                 photo: "https://github.com/user-attachments/assets/dde16918-be0e-4c8d-a9b4-1a5afe4ea7e7",
-                                description: "Smile makeover with veneers"
+                                description: "Smile makeover with veneers",
+                                alt: "Before and after smile makeover showing porcelain veneers transformation"
                             },
                             {
                                 photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
-                                description: "Teeth whitening treatment"
+                                description: "Teeth whitening treatment",
+                                alt: "Professional teeth whitening results showing brighter smile"
                             }
                         ]
                     },
@@ -1245,7 +1302,8 @@
                         cases: [
                             {
                                 photo: "https://via.placeholder.com/400x400/3b82f6/ffffff?text=Clinical+Photo",
-                                description: "Crown and bridge restoration"
+                                description: "Crown and bridge restoration",
+                                alt: "Dental crown and bridge restoration showing restored teeth"
                             }
                         ]
                     }
@@ -1482,7 +1540,7 @@
                                     <div class="case-card">
                                         <div class="case-image-wrapper">
                                             <div class="case-image">
-                                                <img src="${caseItem.photo}" alt="Clinical Case" loading="lazy">
+                                                <img src="${caseItem.photo}" alt="${caseItem.alt || caseItem.description}" loading="lazy">
                                             </div>
                                         </div>
                                         <div class="case-description">
